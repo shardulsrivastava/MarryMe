@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Text,
   View,
@@ -6,18 +7,26 @@ import {
 } from 'react-native';
 //import { navigation } from 'react-navigation';
 
-const Nieco = () => {
+const Login = ({ confirmLogin }) => {
   return (
     <View style={{flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#F5FCFF'}}
     >
+    <TouchableHighlight
+      onPress={ () => confirmLogin() }
+    >
       <Text style={{ fontSize:35, fontWeight: 'bold' }}>
-        Nieco
+        Login
       </Text>
+    </TouchableHighlight>
     </View>
   );
 };
 
-export default Nieco;
+Login.propTypes = {
+  confirmLogin: PropTypes.func,
+};
+
+export default Login;

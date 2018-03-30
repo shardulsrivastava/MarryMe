@@ -5,7 +5,7 @@ import { TabNavigator } from 'react-navigation';
 import Home from '../components/Tabs/Home';
 import Profile from '../components/Tabs/Profile';
 
-export const Tabs = TabNavigator({
+const Tabs = TabNavigator({
   Home: {
     screen: Home,
     navigationOptions: ({ navigation }) => ({
@@ -14,7 +14,7 @@ export const Tabs = TabNavigator({
   },
   Profile: {
     screen: Profile,
-    navigationOptions: ({ navigation }) => ({
+    navigationOptions: ( navigation ) => ({
       title: 'Profile'
     }),
   },
@@ -25,3 +25,4 @@ export const Tabs = TabNavigator({
   tabBarPosition: 'bottom',
 });
 
+export default Tabs;

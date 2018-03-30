@@ -13,7 +13,7 @@ const Profile = () => {
       alignItems: 'center',
       backgroundColor: '#F5FCFF'}}>
         <Text style={{ fontSize:35, fontWeight: 'bold' }}>
-          PROFIL
+          PROFILE
         </Text>
     </View>
   );
