@@ -2,22 +2,19 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
 // Components
-import Login from '../components/Login/LoginHoc';
-import Register from '../components/Registration/RegisterHoc';
+import Login from '../components/User/Login/LoginHoc';
+import Register from '../components/User/Registration/RegisterHoc';
 
 const SignedOut = StackNavigator({
   Login: {
     screen: Login,
-    navigationOptions: ({ navigation }) => ({
-      header: null,
-    }),
   },
   Register: {
     screen: Register,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Registruj sa',
-    }),
   },
+}, {
+  mode: 'modal',
+  headerMode: 'none'
 });
 
 export default SignedOut;
