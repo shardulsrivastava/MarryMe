@@ -8,53 +8,38 @@ import { AppStyles, AppColors } from '../../../styles';
 import { Spacer } from '../../ui';
 
 const RegisterForm = ({
-  name,
-  setName,
-  email,
-  setEmail,
-  password,
-  setPassword,
   confirmRegistration,
   backToLogin,
+  brideName,
+  setBrideName,
+  groomName,
+  setGroomName,
+  loading,
 }) => (
   <View>
-    <Text h3 style={{ fontWeight: 'bold' }}>
-      Registrácia.
+    <Text h4 style={{ fontWeight: 'bold' }}>
+      Prihlásiť sa.
     </Text>
-    <Spacer size={ 40 } />
+    <Spacer size={ 30 } />
     <Input
-      placeholder={ 'Meno' }
-      value={ name }
-      onChangeText={ value => setName(value) }
-      keyboardAppearance={ 'dark' }
+      placeholder={ 'Meno nevesty' }
+      value={ brideName }
+      onChangeText={ value => setBrideName(value) }
       containerStyle={ AppStyles.loginInputContainer }
       inputStyle={ AppStyles.loginInput }
     />
-     <Spacer size={ 10 } />
+    <Spacer size={ 10 } />
     <Input
-      placeholder='e-mail'
-      autoCapitalize={ 'none' }
-      value={ email }
-      onChangeText={ value => setEmail(value) }
-      keyboardType={ 'email-address' }
-      keyboardAppearance={ 'dark' }
+      placeholder={ 'Meno ženícha' }
+      value={ groomName }
+      onChangeText={ value => setGroomName(value) }
       containerStyle={ AppStyles.loginInputContainer }
       inputStyle={ AppStyles.loginInput }
     />
-     <Spacer size={ 10 } />
-    <Input
-      placeholder='heslo'
-      secureTextEntry
-      autoCapitalize={ 'none' }
-      value={ password }
-      onChangeText={ value => setPassword(value) }
-      keyboardAppearance={ 'dark' }
-      containerStyle={ AppStyles.loginInputContainer }
-      inputStyle={ AppStyles.loginInput }
-    />
-     <Spacer size={ 30 } />
+    <Spacer size={ 30 } />
     <Button
-      title='VYTVORIŤ ÚČET'
+      title='PRIHLÁSIŤ SA'
+      loading={ loading }
       onPress={ confirmRegistration }
       buttonStyle={ [
         AppStyles.loginConfirmButton,
@@ -62,7 +47,7 @@ const RegisterForm = ({
       ] }
     />
     <Button
-      title='zrušiť registráciu'
+      title='zrušiť prihlásenie'
       clear
       onPress={ backToLogin }
       titleStyle={{
@@ -74,14 +59,13 @@ const RegisterForm = ({
 );
 
 RegisterForm.propTypes = {
-  name: PropTypes.string,
-  setName: PropTypes.func,
-  email: PropTypes.string,
-  setEmail: PropTypes.func,
-  password: PropTypes.string,
-  setPassword: PropTypes.func,
   confirmRegistration: PropTypes.func,
   backToLogin: PropTypes.func,
+  brideName: PropTypes.string,
+  setBrideName: PropTypes.func,
+  groomName: PropTypes.string,
+  setGroomName: PropTypes.func,
+  loading: PropTypes.bool,
 };
 
 export default RegisterForm;

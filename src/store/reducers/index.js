@@ -1,3 +1,4 @@
-import userReducer from './userReducer';
+import coupleReducer from './coupleReducer';
+import initReducer from './initReducer';
 
-export { userReducer };
+export { coupleReducer, initReducer };

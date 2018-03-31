@@ -1,22 +1,27 @@
 import React from 'react';
-import { View, StatusBar, AppRegistry } from 'react-native';
+import { View, StatusBar, AppRegistry, AsyncStorage } from 'react-native';
 import { Provider } from 'react-redux';
-
+import { persistStore } from 'redux-persist';
+import { setAppReady } from '../src/store/actions';
 import store from './store/store';
+import Layout from './router/Layout';
 
-// routes
-import SignedIn from './router/SignedIn';
-import SignedOut from './router/SignedOut';
 
-const App = ({ userLogged = false }) => {
+persistStore(
+  store,
+  {
+    storage: AsyncStorage,
+    whitelist: ['couple', 'app'],
+  },
+  () => {
+    store.dispatch(setAppReady())
+  }
+);
+
+const App = ({ logged = false }) => {
   return (
     <Provider store={ store }>
-      <View style={{ flex: 1 }}>
-        <StatusBar
-          barStyle={ 'dark-content' }
-        />
-        { userLogged ? <SignedIn /> : <SignedOut /> }
-      </View>
+      <Layout />
     </Provider>
   );
 };

@@ -6,14 +6,13 @@ import { View } from 'react-native';
 import RegisterForm from './RegisterForm';
 
 const Register = ({
-  name,
-  setName,
-  email,
-  setEmail,
-  password,
-  setPassword,
   confirmRegistration,
-  backToLogin
+  backToLogin,
+  brideName,
+  setBrideName,
+  groomName,
+  setGroomName,
+  loading,
 }) => (
   <View
     style={{
@@ -24,27 +23,25 @@ const Register = ({
     }}
   >
     <RegisterForm
-      name={ name }
-      setName={ setName }
-      email={ email }
-      setEmail={ setEmail }
-      password={ password }
-      setPassword={ setPassword }
+      brideName={ brideName }
+      setBrideName={ setBrideName }
+      groomName={ groomName }
+      setGroomName={ setGroomName }
       confirmRegistration={ confirmRegistration }
       backToLogin={ backToLogin }
+      loading={ loading }
     />
   </View>
 );
 
 Register.propTypes = {
-  name: PropTypes.string,
-  setName: PropTypes.func,
-  email: PropTypes.string,
-  setEmail: PropTypes.func,
-  password: PropTypes.string,
-  setPassword: PropTypes.func,
   confirmRegistration: PropTypes.func,
   backToLogin: PropTypes.func,
+  brideName: PropTypes.string,
+  setBrideName: PropTypes.func,
+  groomName: PropTypes.string,
+  setGroomName: PropTypes.func,
+  loading: PropTypes.bool,
 };
 
 export default Register;

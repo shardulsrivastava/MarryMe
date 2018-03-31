@@ -15,7 +15,7 @@ export default {
   },
   
   loginConfirmButton: {
-    paddingVertical: 5,
+    height: 50,
     width: 300,
     borderColor: "transparent",
     borderWidth: 0,

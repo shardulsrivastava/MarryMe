@@ -1,14 +1,15 @@
 import { createStore, combineReducers, compose } from 'redux';
 import { autoRehydrate } from 'redux-persist';
-import { userReducer } from './reducers';
+import { coupleReducer, initReducer } from './reducers';
 
 export default createStore(
   combineReducers({
-    user: userReducer,
+    app: initReducer,
+    couple: coupleReducer,
   }),
   {},
   compose(
-    //autoRehydrate(),
+    autoRehydrate(),
     window.devToolsExtension ? window.devToolsExtension() : f => f,
   ),
 );

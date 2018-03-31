@@ -1,18 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Image } from 'react-native';
+import { Spacer } from '../../ui';
+import { Button, Text } from 'react-native-elements';
+import { AppStyles, AppColors } from '../../../styles';
 
-// Components
-import LoginForm from './LoginForm';
-
-const Login = ({
-  confirmLogin,
-  goToRegister,
-  email,
-  setEmail,
-  password,
-  setPassword,
-}) => {
+const Login = ({ goToRegister }) => {
   return (
     <View
       style={{
@@ -29,24 +22,27 @@ const Login = ({
           resizeMode: 'cover',
         }}
       />
-      <LoginForm
-        email={ email }
-        setEmail={ setEmail }
-        password={ password }
-        setPassword={ setPassword }
-        confirmLogin={ confirmLogin }
-        goToRegister={ goToRegister }
-      />
+      <View style={{ position: 'absolute' }}>
+        <View style={{ flexDirection: 'row' }}>
+          <Text h1 style={{ fontWeight: 'bold', color: AppColors.brand.lightblue }}>MERRY</Text>
+          <Text h1 style={{ fontWeight: 'bold', color: AppColors.brand.blue }}>ME!</Text>
+        </View>
+        <Text h5 style={{ fontWeight: '100' }}>mobilný plánovač svadby</Text>
+        <Spacer size={ 40 } />
+        <Button
+          title='POĎME NA TO!'
+          onPress={ goToRegister }
+          buttonStyle={ [
+            AppStyles.loginConfirmButton,
+            { backgroundColor: AppColors.brand.pink }
+          ] }
+        />
+      </View>
     </View>
   );
 };
 
 Login.propTypes = {
-  email: PropTypes.string,
-  setEmail: PropTypes.func,
-  password: PropTypes.string,
-  setPassword: PropTypes.func,
-  confirmLogin: PropTypes.func,
   goToRegister: PropTypes.func,
 };
 

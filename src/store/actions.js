@@ -1,20 +1,21 @@
 // User actions
-export const SET_LOGGED_USER = 'SET_LOGGED_USER';
-export const RESET_LOGGED_USER = 'RESET_LOGGED_USER';
-export const SET_STATUS = 'SET_STATUS';
-export const SET_USER = 'SET_USER';
+export const SET_LOGGED_COUPLE = 'SET_LOGGED_COUPLE';
+export const RESET_LOGGED_COUPLE = 'RESET_LOGGED_COUPLE';
 
-export const setLoggedUser = user => ({
-  type: SET_LOGGED_USER,
-  payload: user,
+export const setLoggedCouple = couple => ({
+  type: SET_LOGGED_COUPLE,
+  payload: couple,
 });
 
-export const resetLoggedUser = () => ({
-  type: RESET_LOGGED_USER,
+export const resetLoggedCouple = () => ({
+  type: RESET_LOGGED_COUPLE,
   payload: null,
 });
 
-export const setUser = email => ({
-  type: SET_USER,
-  payload: email,
+//App actions
+export const SET_APP_READY = 'SET_APP_READY';
+
+export const setAppReady = ready => ({
+  type: SET_APP_READY,
+  payload: ready,
 });
