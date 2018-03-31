@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  TouchableHighlight,
-} from 'react-native';
-//import { navigation } from 'react-navigation';
+import { Text, View } from 'react-native';
 
 const Profile = () => {
   return (

@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Image } from 'react-native';
 import { Button, Input, Text } from 'react-native-elements';
-import { AppStyles } from '../../styles';
+import { AppStyles, AppColors } from '../../../styles';
+
+// Components
+import { Spacer } from '../../ui';
 
 const RegisterForm = ({
   name,
@@ -18,7 +21,7 @@ const RegisterForm = ({
     <Text h3 style={{ fontWeight: 'bold' }}>
       Registrácia.
     </Text>
-    <View style={{ height: 30 }} />
+    <Spacer size={ 40 } />
     <Input
       placeholder={ 'Meno' }
       value={ name }
@@ -27,7 +30,7 @@ const RegisterForm = ({
       containerStyle={ AppStyles.loginInputContainer }
       inputStyle={ AppStyles.loginInput }
     />
-    <View style={{ height: 5 }} />
+     <Spacer size={ 10 } />
     <Input
       placeholder='e-mail'
       autoCapitalize={ 'none' }
@@ -38,7 +41,7 @@ const RegisterForm = ({
       containerStyle={ AppStyles.loginInputContainer }
       inputStyle={ AppStyles.loginInput }
     />
-    <View style={{ height: 5 }} />
+     <Spacer size={ 10 } />
     <Input
       placeholder='heslo'
       secureTextEntry
@@ -49,11 +52,14 @@ const RegisterForm = ({
       containerStyle={ AppStyles.loginInputContainer }
       inputStyle={ AppStyles.loginInput }
     />
-    <View style={{ height: 20 }} />
+     <Spacer size={ 30 } />
     <Button
       title='VYTVORIŤ ÚČET'
       onPress={ confirmRegistration }
-      buttonStyle={ AppStyles.loginConfirmButton }
+      buttonStyle={ [
+        AppStyles.loginConfirmButton,
+        { backgroundColor: AppColors.brand.lightblue }
+      ] }
     />
     <Button
       title='zrušiť registráciu'

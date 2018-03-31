@@ -1,17 +1,24 @@
-import React, { Component } from 'react';
-import { View, StatusBar } from 'react-native';
+import React from 'react';
+import { View, StatusBar, AppRegistry } from 'react-native';
+import { Provider } from 'react-redux';
+
+import store from './store/store';
 
 // routes
 import SignedIn from './router/SignedIn';
 import SignedOut from './router/SignedOut';
 
-const App = ({ userLogged = false }) => (
-  <View style={{ flex: 1 }}>
-    <StatusBar
-      barStyle={ 'dark-content' }
-    />
-    { userLogged ? <SignedIn /> : <SignedOut /> }
-  </View>
-);
+const App = ({ userLogged = false }) => {
+  return (
+    <Provider store={ store }>
+      <View style={{ flex: 1 }}>
+        <StatusBar
+          barStyle={ 'dark-content' }
+        />
+        { userLogged ? <SignedIn /> : <SignedOut /> }
+      </View>
+    </Provider>
+  );
+};
 
- export default App;
+AppRegistry.registerComponent('RnApp', () => App);

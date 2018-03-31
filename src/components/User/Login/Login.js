@@ -19,16 +19,16 @@ const Login = ({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#F1F1F1',
+        backgroundColor: 'transparent',
       }}
     >
-     {/* <Image
-        source={require('urlobrazka')}
+     <Image
+        source={require('../../../assets/images/loginbg.png')}
         style={{
           flex: 1,
           resizeMode: 'cover',
         }}
-      /> */}
+      />
       <LoginForm
         email={ email }
         setEmail={ setEmail }

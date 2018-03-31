@@ -1,7 +1,6 @@
 import { compose, withHandlers, withState } from 'recompose';
 import { withNavigation } from 'react-navigation';
 import { connect } from 'react-redux';
-import { AsyncStorage } from 'react-native';
 
 //components
 import Login from './Login';

@@ -3,7 +3,7 @@ import { TabNavigator } from 'react-navigation';
 
 // Components
 import Home from '../components/Home';
-import Profile from '../components/Profile';
+import Profile from '../components/User/Profile/Profile';
 
 const Tabs = TabNavigator({
   Home: {

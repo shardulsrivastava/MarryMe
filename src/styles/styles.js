@@ -1,6 +1,5 @@
 export default {
   // LOGIN AND REGISTRATION
-
   loginInput: {
     paddingHorizontal: 10,
     fontSize: 15,
@@ -8,14 +7,14 @@ export default {
 
   loginInputContainer: {
     backgroundColor: '#FFF',
-    borderBottomColor: 'transparent',
     width: 300,
+    borderWidth: 0.5,
+    borderColor: '#d9dade',
     borderRadius: 80,
     height: 50,
   },
   
   loginConfirmButton: {
-    backgroundColor: "#61B4B8",
     paddingVertical: 5,
     width: 300,
     borderColor: "transparent",
