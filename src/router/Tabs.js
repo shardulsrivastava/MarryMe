@@ -5,10 +5,9 @@ import { AppColors } from '../styles';
 import { Platform } from 'react-native';
 
 // Components
-import Home from '../components/Home/Home';
+import Home from '../components/Home/HomeHoc';
 import Budget from '../components/Budget/Budget';
 import EventList from '../components/EventList/EventList';
-import Profile from '../components/Couple/Profile/Profile';
 
 const Tabs = TabNavigator({
   Home: {
@@ -27,12 +26,6 @@ const Tabs = TabNavigator({
     screen: EventList,
     navigationOptions: ({ navigation }) => ({
       title: 'Zoznam'
-    }),
-  },
-  Profile: {
-    screen: Profile,
-    navigationOptions: ( navigation ) => ({
-      title: 'Profil'
     }),
   },
 }, {

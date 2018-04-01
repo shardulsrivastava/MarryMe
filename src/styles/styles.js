@@ -26,7 +26,31 @@ export default {
     shadowOffset: {
       height: 0.6,
     }
-  }
+  },
+
+  // FLEXBOX LAYOUT
+  flex1: { flex: 1 },
+  flex2: { flex: 2 },
+  flex3: { flex: 3 },
+  flex4: { flex: 4 },
+  row: { flexDirection: 'row' },
+
+  //UI
+  shadowCard: {
+    padding: 10,
+    borderRadius: 5,
+    elevation: 1,
+    shadowOpacity: 0.15,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 0.5,
+    }
+  },
+
+  simpleCard: {
+    padding: 10,
+    borderRadius: 5,
+  },
 
 
 };

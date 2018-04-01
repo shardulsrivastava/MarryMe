@@ -1,18 +1,32 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  TouchableHighlight,
-} from 'react-native';
-import Icon from 'react-native-vector-icons';
+import PropTypes from 'prop-types';
+import { ScrollView } from 'react-native';
+import { AppStyles, AppColors } from '../../styles';
+import { Divider } from 'react-native-elements';
 
-const Home = () => (
-  <View style={{flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'}}>
-  </View>
+// Components
+import HomeHeader from './HomeHeader';
+
+const Home = ({ brideName, groomName }) => (
+  <ScrollView style={ [
+    AppStyles.flex1,
+    {
+      padding: 10,
+      backgroundColor: '#F1F1F1',
+    },
+  ] }
+  >
+    <HomeHeader
+      brideName={ brideName }
+      groomName={ groomName }
+    />
+    <Divider style={{ backgroundColor: AppColors.brand.gray }} />
+  </ScrollView>
 );
 
+Home.propTypes = {
+  brideName: PropTypes.string,
+  groomName: PropTypes.string,
+};
 
 export default Home;
