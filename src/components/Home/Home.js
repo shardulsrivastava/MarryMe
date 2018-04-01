@@ -4,19 +4,13 @@ import {
   View,
   TouchableHighlight,
 } from 'react-native';
+import Icon from 'react-native-vector-icons';
 
 const Home = () => (
   <View style={{flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF'}}>
-    <TouchableHighlight
-      onPress={ () => null }
-    >
-      <Text style={{ fontSize:35, fontWeight: 'bold' }}>
-        Home
-      </Text>
-    </TouchableHighlight>
   </View>
 );
 

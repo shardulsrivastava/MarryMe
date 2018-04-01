@@ -1,28 +1,64 @@
 import React, { Component } from 'react';
 import { TabNavigator } from 'react-navigation';
+//import Icon from 'react-native-vector-icons/Ionicons';
+import { AppColors } from '../styles';
+import { Platform } from 'react-native';
 
 // Components
-import Home from '../components/Home';
-import Profile from '../components/User/Profile/Profile';
+import Home from '../components/Home/Home';
+import Budget from '../components/Budget/Budget';
+import EventList from '../components/EventList/EventList';
+import Profile from '../components/Couple/Profile/Profile';
 
 const Tabs = TabNavigator({
   Home: {
     screen: Home,
     navigationOptions: ({ navigation }) => ({
-      title: 'Home'
+      title: 'Domov',
+    }),
+  },
+  Budget: {
+    screen: Budget,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Rozpočet'
+    }),
+  },
+  EventList: {
+    screen: EventList,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Zoznam'
     }),
   },
   Profile: {
     screen: Profile,
     navigationOptions: ( navigation ) => ({
-      title: 'Profile'
+      title: 'Profil'
     }),
   },
 }, {
+  tabBarOptions: {
+    style: {
+      backgroundColor: Platform.OS === 'ios' ? 'transparent'
+      : AppColors.app.white,
+      borderTopWidth: 0,
+      height: 50,
+    },
+    tabStyle: {
+      height: 50,
+      opacity: 1,
+    },
+    indicatorStyle: {
+      height: 0,
+    },
+    activeTintColor: AppColors.brand.yellow,
+    inactiveTintColor: 'gray',
+  },
   lazy: true,
   swipeEnabled: true,
   animationEnabled: true,
   tabBarPosition: 'bottom',
+  showIcon: true,
+  showLabel: true
 });
 
 export default Tabs;
