@@ -12,7 +12,7 @@ const Home = ({ brideName, groomName }) => (
     AppStyles.flex1,
     {
       padding: 10,
-      backgroundColor: '#F1F1F1',
+      backgroundColor: AppColors.app.white,
     },
   ] }
   >

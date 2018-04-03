@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TabNavigator } from 'react-navigation';
-//import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { AppColors } from '../styles';
 import { Platform } from 'react-native';
 
@@ -14,18 +14,21 @@ const Tabs = TabNavigator({
     screen: Home,
     navigationOptions: ({ navigation }) => ({
       title: 'Domov',
+      tabBarIcon: ({ tintColor }) => <Icon color={ tintColor } size={ 25 } name={ 'ios-home' } />,
     }),
   },
   Budget: {
     screen: Budget,
     navigationOptions: ({ navigation }) => ({
-      title: 'Rozpočet'
+      title: 'Rozpočet',
+      tabBarIcon: ({ tintColor }) => <Icon color={ tintColor } size={ 25 } name={ 'md-card' } />
     }),
   },
   EventList: {
     screen: EventList,
     navigationOptions: ({ navigation }) => ({
-      title: 'Zoznam'
+      title: 'Zoznam',
+      tabBarIcon: ({ tintColor }) => <Icon color={ tintColor } size={ 25 } name={ 'md-list-box' } />
     }),
   },
 }, {

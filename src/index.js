@@ -26,4 +26,4 @@ const App = ({ logged = false }) => {
   );
 };
 
-AppRegistry.registerComponent('RnApp', () => App);
+AppRegistry.registerComponent('MarryMe', () => App);
