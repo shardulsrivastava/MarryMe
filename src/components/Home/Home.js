@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { AppStyles, AppColors } from '../../styles';
-import { Divider } from 'react-native-elements';
+import { Divider, Text } from 'react-native-elements';
+import { Spacer } from '../ui';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 // Components
 import HomeHeader from './HomeHeader';
+import HomeCard from './HomeCard';
 
 const Home = ({ brideName, groomName }) => (
   <ScrollView style={ [
@@ -16,11 +19,41 @@ const Home = ({ brideName, groomName }) => (
     },
   ] }
   >
+    <Text h2 style={{
+      paddingBottom: 25,
+      fontWeight: 'bold'
+    }}
+    >
+      Informácie
+    </Text>
     <HomeHeader
       brideName={ brideName }
       groomName={ groomName }
     />
     <Divider style={{ backgroundColor: AppColors.brand.gray }} />
+    <Spacer size={ 15 } />
+    <HomeCard
+      iconLeft
+      icon={ 'alarm' }
+      value={ 'o 15 dní' }
+      color={ '#A8EFEB' }
+      onPress={ () => console.log('time') }
+    />
+    <Spacer size={ 10 } />
+    <HomeCard
+      icon={ 'place' }
+      value={ 'Bratislava' }
+      color={ '#D6E5F3' }
+      onPress={ () => console.log('place') }
+    />
+    <Spacer size={ 10 } />
+    <HomeCard
+      iconLeft
+      icon={ 'account-balance-wallet' }
+      value={ '150€' }
+      color={ '#EEB9DB' }
+      onPress={ () => console.log('budget') }
+    />
   </ScrollView>
 );
 

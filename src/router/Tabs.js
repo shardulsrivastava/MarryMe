@@ -14,21 +14,30 @@ const Tabs = TabNavigator({
     screen: Home,
     navigationOptions: ({ navigation }) => ({
       title: 'Domov',
-      tabBarIcon: ({ tintColor }) => <Icon color={ tintColor } size={ 25 } name={ 'ios-home' } />,
+      tabBarIcon: ({ focused, tintColor }) => <Icon
+        color={ tintColor }
+        size={ 25 }
+        name={ focused ? 'ios-home' : 'ios-home-outline' } />,
     }),
   },
   Budget: {
     screen: Budget,
     navigationOptions: ({ navigation }) => ({
       title: 'Rozpočet',
-      tabBarIcon: ({ tintColor }) => <Icon color={ tintColor } size={ 25 } name={ 'md-card' } />
+      tabBarIcon: ({ focused, tintColor }) => <Icon
+        color={ tintColor }
+        size={ 25 }
+        name={ focused? 'md-card' : 'ios-card-outline' } />
     }),
   },
   EventList: {
     screen: EventList,
     navigationOptions: ({ navigation }) => ({
       title: 'Zoznam',
-      tabBarIcon: ({ tintColor }) => <Icon color={ tintColor } size={ 25 } name={ 'md-list-box' } />
+      tabBarIcon: ({ focused, tintColor }) => <Icon
+        color={ tintColor }
+        size={ 25 }
+        name={ focused ? 'md-list-box' : 'ios-list-box-outline' } />
     }),
   },
 }, {
@@ -46,15 +55,15 @@ const Tabs = TabNavigator({
     indicatorStyle: {
       height: 0,
     },
-    activeTintColor: AppColors.brand.yellow,
+    activeTintColor: AppColors.app.black,
     inactiveTintColor: 'gray',
+    showIcon: true,
+    showLabel: false,
   },
   lazy: true,
   swipeEnabled: true,
   animationEnabled: true,
   tabBarPosition: 'bottom',
-  showIcon: true,
-  showLabel: true
 });
 
 export default Tabs;

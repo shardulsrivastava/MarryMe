@@ -1,0 +1,81 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { TouchableOpacity, View } from 'react-native';
+import { AppStyles, AppColors } from '../../styles';
+import { Divider, Text } from 'react-native-elements';
+import { Spacer } from '../ui';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+const HomeCard = ({
+  iconLeft,
+  value,
+  color,
+  icon,
+  onPress,
+}) => {
+  if ( iconLeft ) {
+    return(
+      <TouchableOpacity
+        onPress={ onPress }
+        activeOpacity={ 0.6 }
+        style={ [
+          AppStyles.shadowCard,
+          AppStyles.row,
+          {
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            backgroundColor: color,
+          }
+        ] }
+      >
+        <Icon
+          name={ icon }
+          size={ 45 }
+          color={ 'rgba(0,0,0,0.4)' }
+          />
+        <Text
+          style={{ fontSize: 25, fontWeight: '200', color: AppColors.app.black }}
+        >
+          { value }
+        </Text>
+      </TouchableOpacity>
+    );
+  } else {
+    return(
+      <TouchableOpacity
+        onPress={ onPress }
+        activeOpacity={ 0.6 }
+        style={ [
+          AppStyles.shadowCard,
+          AppStyles.row,
+          {
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            backgroundColor: color,
+          }
+        ] }
+      >
+        <Text
+        style={{ fontSize: 25, fontWeight: '200', color: AppColors.app.black }}
+        >
+          { value } 
+        </Text>
+        <Icon
+          name={ icon }
+          size={ 45 }
+          color={ 'rgba(0,0,0,0.4)' }
+        />
+      </TouchableOpacity>
+    );
+  }
+};
+
+HomeCard.propTypes = {
+  iconLeft: PropTypes.bool,
+  value: PropTypes.string,
+  color: PropTypes.string,
+  icon: PropTypes.string,
+  onPress: PropTypes.func,
+};
+
+export default HomeCard;
