@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { AppStyles, AppColors } from '../../styles';
-import { Divider, Text } from 'react-native-elements';
-import { Spacer } from '../ui';
+import { Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const HomeCard = ({
@@ -30,11 +29,11 @@ const HomeCard = ({
       >
         <Icon
           name={ icon }
-          size={ 45 }
+          size={ 50 }
           color={ 'rgba(0,0,0,0.4)' }
           />
         <Text
-          style={{ fontSize: 25, fontWeight: '200', color: AppColors.app.black }}
+          style={{ fontSize: 23, fontWeight: '200', color: AppColors.app.black }}
         >
           { value }
         </Text>
@@ -56,13 +55,13 @@ const HomeCard = ({
         ] }
       >
         <Text
-        style={{ fontSize: 25, fontWeight: '200', color: AppColors.app.black }}
+        style={{ fontSize: 23, fontWeight: '200', color: AppColors.app.black }}
         >
           { value } 
         </Text>
         <Icon
           name={ icon }
-          size={ 45 }
+          size={ 50 }
           color={ 'rgba(0,0,0,0.4)' }
         />
       </TouchableOpacity>

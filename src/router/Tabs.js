@@ -13,7 +13,7 @@ const Tabs = TabNavigator({
   Home: {
     screen: Home,
     navigationOptions: ({ navigation }) => ({
-      title: 'Domov',
+      header: null,
       tabBarIcon: ({ focused, tintColor }) => <Icon
         color={ tintColor }
         size={ 25 }
@@ -23,7 +23,7 @@ const Tabs = TabNavigator({
   Budget: {
     screen: Budget,
     navigationOptions: ({ navigation }) => ({
-      title: 'Rozpočet',
+      header: null,
       tabBarIcon: ({ focused, tintColor }) => <Icon
         color={ tintColor }
         size={ 25 }
@@ -33,7 +33,7 @@ const Tabs = TabNavigator({
   EventList: {
     screen: EventList,
     navigationOptions: ({ navigation }) => ({
-      title: 'Zoznam',
+      header: null,
       tabBarIcon: ({ focused, tintColor }) => <Icon
         color={ tintColor }
         size={ 25 }
