@@ -17,7 +17,7 @@ const RegisterForm = ({
   loading,
 }) => (
   <View>
-    <Text h4 style={{ fontWeight: 'bold' }}>
+    <Text h4 style={{ fontWeight: 'bold', color: AppColors.app.black }}>
       Prihlásiť sa.
     </Text>
     <Spacer size={ 30 } />

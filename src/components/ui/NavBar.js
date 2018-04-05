@@ -15,7 +15,7 @@ class NavBar extends Component {
         style: 'light-content',
       },
       containerStyle: {
-        backgroundColor: 'white',
+        backgroundColor: '#d6e5f3',
         shadowColor: AppColors.app.black,
         shadowOpacity: 0.1,
         shadowRadius: StyleSheet.hairlineWidth,

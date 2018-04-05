@@ -34,6 +34,7 @@ export default {
   flex3: { flex: 3 },
   flex4: { flex: 4 },
   row: { flexDirection: 'row' },
+  col: { flexDirection: 'column' },
 
   //UI
   shadowCard: {

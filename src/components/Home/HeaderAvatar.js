@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
 import { Text, Avatar } from 'react-native-elements';
+import { AppColors } from '../../styles';
 
 const HeaderAvatar = ({ image, title }) => (
   <View style={{
@@ -16,7 +17,8 @@ const HeaderAvatar = ({ image, title }) => (
     />
     <Text style={{
       fontSize: 17,
-      fontWeight: '600'
+      fontWeight: '600',
+      color: AppColors.app.black,
     }}>
       { title }
     </Text>

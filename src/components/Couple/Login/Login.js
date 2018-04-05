@@ -28,7 +28,7 @@ const Login = ({ goToRegister, appVersion }) => {
           <Text h1 style={{ fontWeight: 'bold', color: AppColors.brand.lightblue }}>MERRY</Text>
           <Text h1 style={{ fontWeight: 'bold', color: AppColors.brand.blue }}>ME!</Text>
         </View>
-        <Text h5 style={{ fontWeight: '100' }}>mobilný plánovač svadby</Text>
+        <Text h5 style={{ fontWeight: '100', color: AppColors.app.black }}>mobilný plánovač svadby</Text>
         <Spacer size={ 40 } />
         <Button
           title='POĎME NA TO!'

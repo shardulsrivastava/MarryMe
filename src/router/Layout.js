@@ -15,6 +15,7 @@ const Layout = ({ logged }) => {
   return (
     <View style={{ flex: 1 }}>
       <StatusBar
+        backgroundColor={ '#d6e5f3' }
         barStyle={ 'dark-content' }
       />
       { logged ? <SignedIn /> : <SignedOut /> }

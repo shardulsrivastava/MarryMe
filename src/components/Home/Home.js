@@ -26,7 +26,8 @@ const Home = ({ brideName, groomName, city }) => (
     >
       <Text h2 style={{
         paddingBottom: 25,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: AppColors.app.black,
       }}
       >
         Informácie
