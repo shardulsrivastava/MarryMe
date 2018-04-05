@@ -12,6 +12,13 @@ export const resetLoggedCouple = () => ({
   payload: null,
 });
 
+//Place actions
+export const SET_PLACE_CITY = 'SET_PLACE_CITY';
+export const setPlaceCity = () => ({
+  type: SET_PLACE_CITY,
+  payload: null,
+});
+
 //App actions
 export const SET_APP_READY = 'SET_APP_READY';
 

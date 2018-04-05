@@ -1,4 +1,9 @@
 import coupleReducer from './coupleReducer';
 import initReducer from './initReducer';
+import placeReducer from './placeReducer';
 
-export { coupleReducer, initReducer };
+export {
+  coupleReducer,
+  placeReducer,
+  initReducer
+};

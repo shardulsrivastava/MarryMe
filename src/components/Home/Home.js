@@ -9,7 +9,7 @@ import { Spacer, NavBar } from '../ui';
 import HomeHeader from './HomeHeader';
 import HomeCard from './HomeCard';
 
-const Home = ({ brideName, groomName }) => (
+const Home = ({ brideName, groomName, city }) => (
   <View style={ AppStyles.flex1 }>
     <NavBar
       title={{
@@ -47,7 +47,7 @@ const Home = ({ brideName, groomName }) => (
       <Spacer size={ 10 } />
       <HomeCard
         icon={ 'place' }
-        value={ 'Bratislava' }
+        value={ city ? city : 'Nastaviť mesto' }
         color={ '#D6E5F3' }
         onPress={ () => console.log('place') }
       />
@@ -66,6 +66,7 @@ const Home = ({ brideName, groomName }) => (
 Home.propTypes = {
   brideName: PropTypes.string,
   groomName: PropTypes.string,
+  city: PropTypes.string,
 };
 
 export default Home;

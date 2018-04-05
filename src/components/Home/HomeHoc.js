@@ -7,9 +7,14 @@ const withLogged = connect(state => ({
   groomName: state.couple.groom,
 }));
 
+const withBasicInfo = connect(state => ({
+  city: state.place.city,
+}));
+
 //components
 import Home from './Home';
 
 export default compose(
   withLogged,
+  withBasicInfo,
 )(Home);
