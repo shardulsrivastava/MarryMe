@@ -1,5 +1,6 @@
 const initialState = {
   ready: false,
+  version: '0.1'
 };
 
 export default (state = initialState, action) => {

@@ -5,7 +5,7 @@ import { Spacer } from '../../ui';
 import { Button, Text } from 'react-native-elements';
 import { AppStyles, AppColors } from '../../../styles';
 
-const Login = ({ goToRegister }) => {
+const Login = ({ goToRegister, appVersion }) => {
   return (
     <View
       style={{
@@ -15,6 +15,7 @@ const Login = ({ goToRegister }) => {
         backgroundColor: 'transparent',
       }}
     >
+      { console.log(appVersion) }
      <Image
         source={require('../../../assets/images/loginbg.png')}
         style={{
@@ -37,6 +38,15 @@ const Login = ({ goToRegister }) => {
             { backgroundColor: AppColors.brand.pink }
           ] }
         />
+        <Text
+          style={{
+            alignSelf: 'center',
+            marginTop: 50,
+            fontSize: 11
+          }}
+        >
+          { `version ${appVersion}` }
+        </Text>
       </View>
     </View>
   );
@@ -44,6 +54,7 @@ const Login = ({ goToRegister }) => {
 
 Login.propTypes = {
   goToRegister: PropTypes.func,
+  appVersion: PropTypes.string,
 };
 
 export default Login;

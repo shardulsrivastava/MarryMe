@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 //components
 import Login from './Login';
 
+const withAppVersion = connect(state => ({
+  appVersion: state.app.version,
+}));
+
 const withConfirmLoginHandlers =  withHandlers({
   goToRegister: props => () => {
     const { navigation } = props;
@@ -13,6 +17,7 @@ const withConfirmLoginHandlers =  withHandlers({
 })
 
 export default compose(
+  withAppVersion,
   withNavigation,
   withConfirmLoginHandlers,
 )(Login);
