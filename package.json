@@ -6,7 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "install:android": "react-native run-android",
-    "install:ios": "react-native run-ios"
+    "install:ios": "react-native run-ios",
+    "postinstall": "rm ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json"
   },
   "dependencies": {
     "moment": "^2.21.0",
@@ -16,6 +17,7 @@
     "react-native-config": "^0.11.5",
     "react-native-datepicker": "^1.6.0",
     "react-native-elements": "^1.0.0-beta3",
+    "react-native-google-places-autocomplete": "^1.3.6",
     "react-native-hyperlink": "^0.0.12",
     "react-native-i18n": "^2.0.12",
     "react-native-navbar": "^2.1.0",

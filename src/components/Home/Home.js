@@ -8,8 +8,18 @@ import { Spacer, NavBar } from '../ui';
 // Components
 import HomeHeader from './HomeHeader';
 import HomeCard from './HomeCard';
+import PlaceModal from './Modals/PlaceModal';
+import DateModal from './Modals/DateModal';
 
-const Home = ({ brideName, groomName, city }) => (
+const Home = ({
+  brideName,
+  groomName,
+  city,
+  placeModalVisible,
+  setPlaceModalVisible,
+  dateModalVisible,
+  setDateModalVisible,
+}) => (
   <View style={ AppStyles.flex1 }>
     <NavBar
       title={{
@@ -43,14 +53,14 @@ const Home = ({ brideName, groomName, city }) => (
         icon={ 'alarm' }
         value={ 'o 15 dní' }
         color={ '#A8EFEB' }
-        onPress={ () => console.log('time') }
+        onPress={ () => setDateModalVisible(true) }
       />
       <Spacer size={ 10 } />
       <HomeCard
         icon={ 'place' }
         value={ city ? city : 'Nastaviť mesto' }
         color={ '#D6E5F3' }
-        onPress={ () => console.log('place') }
+        onPress={ () => setPlaceModalVisible(true) }
       />
       <Spacer size={ 10 } />
       <HomeCard
@@ -61,6 +71,15 @@ const Home = ({ brideName, groomName, city }) => (
         onPress={ () => console.log('budget') }
       />
     </ScrollView>
+
+    <PlaceModal
+      isVisible={ placeModalVisible }
+      closeModal={ () => setPlaceModalVisible(false) }
+    />
+    <DateModal
+      isVisible={ dateModalVisible }
+      closeModal={ () => setDateModalVisible(false) }
+    />
   </View>
 );
 
@@ -68,6 +87,10 @@ Home.propTypes = {
   brideName: PropTypes.string,
   groomName: PropTypes.string,
   city: PropTypes.string,
+  placeModalVisible: PropTypes.bool,
+  setPlaceModalVisible: PropTypes.func,
+  dateModalVisible: PropTypes.bool,
+  setDateModalVisible: PropTypes.func,
 };
 
 export default Home;

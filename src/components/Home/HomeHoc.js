@@ -1,4 +1,4 @@
-import { compose, withHandlers } from 'recompose';
+import { compose, withState } from 'recompose';
 import { withNavigation } from 'react-navigation';
 import { connect } from 'react-redux';
 
@@ -11,10 +11,16 @@ const withBasicInfo = connect(state => ({
   city: state.place.city,
 }));
 
+const withHomeStates = compose(
+  withState('placeModalVisible', 'setPlaceModalVisible', false),
+  withState('dateModalVisible', 'setDateModalVisible', false),
+);
+
 //components
 import Home from './Home';
 
 export default compose(
   withLogged,
   withBasicInfo,
+  withHomeStates,
 )(Home);

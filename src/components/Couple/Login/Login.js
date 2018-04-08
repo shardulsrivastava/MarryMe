@@ -25,8 +25,8 @@ const Login = ({ goToRegister, appVersion }) => {
       />
       <View style={{ position: 'absolute' }}>
         <View style={{ flexDirection: 'row' }}>
-          <Text h1 style={{ fontWeight: 'bold', color: AppColors.brand.lightblue }}>MERRY</Text>
-          <Text h1 style={{ fontWeight: 'bold', color: AppColors.brand.blue }}>ME!</Text>
+          <Text h1 style={{ fontWeight: 'bold', color: '#313132' }}>marry</Text>
+          <Text h1 style={{ fontWeight: 'bold', color: '#666666' }}>me!</Text>
         </View>
         <Text h5 style={{ fontWeight: '100', color: AppColors.app.black }}>mobilný plánovač svadby</Text>
         <Spacer size={ 40 } />
@@ -42,7 +42,8 @@ const Login = ({ goToRegister, appVersion }) => {
           style={{
             alignSelf: 'center',
             marginTop: 50,
-            fontSize: 11
+            fontSize: 11,
+            color: '#959FA2'
           }}
         >
           { `version ${appVersion}` }
