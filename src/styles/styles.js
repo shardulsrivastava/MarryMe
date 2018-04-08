@@ -1,5 +1,5 @@
 export default {
-  // LOGIN AND REGISTRATION
+  // FORMS
   loginInput: {
     paddingHorizontal: 10,
     fontSize: 15,
@@ -26,6 +26,28 @@ export default {
     shadowOffset: {
       height: 0.6,
     }
+  },
+
+  confirmButton: {
+    height: 50,
+    borderColor: "transparent",
+    borderWidth: 0,
+    borderRadius: 50,
+    elevation: 1,
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    shadowOffset: {
+      height: 0.6,
+    }
+  },
+
+  dateInputStyle: {
+    backgroundColor: '#FFF',
+    width: 300,
+    borderWidth: 0.5,
+    borderColor: 'gray',
+    borderRadius: 80,
+    height: 50,
   },
 
   // FLEXBOX LAYOUT
