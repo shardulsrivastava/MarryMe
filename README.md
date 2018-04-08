@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/massoprod/rnapp/blob/master/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png?raw=true" width="150"></p>
+<p align="center"><img src="https://github.com/massoprod/rnapp/blob/master/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png?raw=true" width="150"></p>
 
 
 # MarryMe - mobile wedding planner
