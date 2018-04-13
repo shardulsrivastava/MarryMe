@@ -62,7 +62,7 @@ const PlaceModal = ({
         } }
         listViewDisplayed={ 'auto' }
         query={{
-          key: 'AIzaSyCbiBrYLaq42RRUJ9J3dnhhtMca_MUH6HU',
+          key: 'AIzaSyDgl9pNoQu8PNTkxItAhYrXNVTltGsNbcI',
           language: 'sk',
           types: '(cities)',
         }}
