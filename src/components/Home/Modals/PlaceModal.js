@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
 import { AppStyles, AppColors } from '../../../styles';
-import { Text } from 'react-native-elements';
+import { Text, Button } from 'react-native-elements';
 import { Spacer, NavBar, Modal } from '../../ui';
 import Icon from 'react-native-vector-icons/Ionicons';
-
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 const PlaceModal = ({ isVisible, closeModal }) => (
   <Modal
     visible={ isVisible }
@@ -29,7 +29,7 @@ const PlaceModal = ({ isVisible, closeModal }) => (
     />
     <View style={{
       flex: 1,
-      paddingHorizontal: 10,
+      alignItems: 'center',
       justifyContent: 'center'
     }}>
       <Text h4 style={{
@@ -40,6 +40,19 @@ const PlaceModal = ({ isVisible, closeModal }) => (
       >
         Miesto svadby
       </Text>
+      <Spacer size={ 15 } />
+      <Button
+        title='Nastaviť'
+        //loading={ loading }
+        //onPress={ confirmRegistration }
+        buttonStyle={ [
+          AppStyles.confirmButton,
+          {
+            width: 300,
+            backgroundColor: '#B9AAC2'
+          }
+        ] }
+      />
     </View>
   </Modal>
 );

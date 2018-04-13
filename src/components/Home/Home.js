@@ -9,12 +9,13 @@ import { Spacer, NavBar } from '../ui';
 import HomeHeader from './HomeHeader';
 import HomeCard from './HomeCard';
 import PlaceModal from './Modals/PlaceModal';
-import DateModal from './Modals/DateModal';
+import DateModal from './Modals/DateModalHoc';
 
 const Home = ({
   brideName,
   groomName,
   city,
+  weddingDate,
   placeModalVisible,
   setPlaceModalVisible,
   dateModalVisible,
@@ -51,7 +52,7 @@ const Home = ({
       <HomeCard
         iconLeft
         icon={ 'alarm' }
-        value={ 'o 15 dní' }
+        value={ weddingDate ? weddingDate : 'Nastaviť dátum' }
         color={ '#A8EFEB' }
         onPress={ () => setDateModalVisible(true) }
       />
@@ -87,6 +88,7 @@ Home.propTypes = {
   brideName: PropTypes.string,
   groomName: PropTypes.string,
   city: PropTypes.string,
+  weddingDate: PropTypes.string,
   placeModalVisible: PropTypes.bool,
   setPlaceModalVisible: PropTypes.func,
   dateModalVisible: PropTypes.bool,

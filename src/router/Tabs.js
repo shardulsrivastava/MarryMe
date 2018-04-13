@@ -6,8 +6,8 @@ import { Platform } from 'react-native';
 
 // Components
 import Home from '../components/Home/HomeHoc';
-import Budget from '../components/Budget/Budget';
-import EventList from '../components/EventList/EventList';
+import Budget from '../components/Budget/BudgetHoc';
+import EventList from '../components/EventList/EventListHoc';
 
 const Tabs = TabNavigator({
   Home: {

@@ -15,7 +15,6 @@ const Login = ({ goToRegister, appVersion }) => {
         backgroundColor: 'transparent',
       }}
     >
-      { console.log(appVersion) }
      <Image
         source={require('../../../assets/images/loginbg.png')}
         style={{

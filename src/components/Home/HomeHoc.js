@@ -9,6 +9,7 @@ const withLogged = connect(state => ({
 
 const withBasicInfo = connect(state => ({
   city: state.place.city,
+  weddingDate: state.date.weddingDate,
 }));
 
 const withHomeStates = compose(

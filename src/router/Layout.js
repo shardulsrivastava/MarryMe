@@ -9,6 +9,7 @@ import SignedOut from './SignedOut';
 
 const withLogged = connect(state => ({
   logged: state.couple.status,
+  //logged: false,
 }));
 
 const Layout = ({ logged }) => {
