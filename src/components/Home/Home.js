@@ -4,11 +4,12 @@ import { ScrollView, View } from 'react-native';
 import { AppStyles, AppColors } from '../../styles';
 import { Divider, Text } from 'react-native-elements';
 import { Spacer, NavBar } from '../ui';
+import moment from 'moment';
 
 // Components
 import HomeHeader from './HomeHeader';
 import HomeCard from './HomeCard';
-import PlaceModal from './Modals/PlaceModal';
+import PlaceModal from './Modals/PlaceModalHoc';
 import DateModal from './Modals/DateModalHoc';
 
 const Home = ({
@@ -52,7 +53,7 @@ const Home = ({
       <HomeCard
         iconLeft
         icon={ 'alarm' }
-        value={ weddingDate ? weddingDate : 'Nastaviť dátum' }
+        value={ weddingDate ? moment(weddingDate).format('DD.MM.YYYY') : 'Nastaviť dátum' }
         color={ '#A8EFEB' }
         onPress={ () => setDateModalVisible(true) }
       />

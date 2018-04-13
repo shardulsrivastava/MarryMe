@@ -6,7 +6,15 @@ import { Text, Button } from 'react-native-elements';
 import { Spacer, NavBar, Modal } from '../../ui';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-const PlaceModal = ({ isVisible, closeModal }) => (
+
+const PlaceModal = ({
+  isVisible,
+  closeModal,
+  place,
+  setPlace,
+  loading,
+  setAndSaveWeddingPlace,
+}) => (
   <Modal
     visible={ isVisible }
   >
@@ -40,11 +48,59 @@ const PlaceModal = ({ isVisible, closeModal }) => (
       >
         Miesto svadby
       </Text>
+      <GooglePlacesAutocomplete
+        currentLocation={ false }
+        placeholder={ 'Vybrať mesto' }
+        minLength={ 2 }
+        autoFocus={ false }
+        debounce={ 200 }
+        fetchDetails
+        onPress={ (data, details = null) => {
+          if (details && details.name) {
+            setPlace(details.name);
+          }
+        } }
+        listViewDisplayed={ 'auto' }
+        query={{
+          key: 'AIzaSyCbiBrYLaq42RRUJ9J3dnhhtMca_MUH6HU',
+          language: 'sk',
+          types: '(cities)',
+        }}
+        styles={{
+          container: {
+            flex: 0,
+            zIndex: 1,
+          },
+          textInputContainer: {
+            width: 325,
+            backgroundColor: 'transparent',
+            borderTopWidth: 0,
+            borderBottomWidth: 0,
+            height: 65
+          },
+          textInput: {
+            width: 300,
+            borderWidth: 0.5,
+            borderColor: 'gray',
+            borderRadius: 80,
+            height: 50,
+          },
+          description: {
+            fontWeight: 'bold',
+          },
+          listView: {
+            position: 'absolute',
+            top: 50,
+            backgroundColor: '#FFF',
+            zIndex: 1,
+          },
+        }}
+      />
       <Spacer size={ 15 } />
       <Button
         title='Nastaviť'
-        //loading={ loading }
-        //onPress={ confirmRegistration }
+        loading={ loading }
+        onPress={ () => setAndSaveWeddingPlace() }
         buttonStyle={ [
           AppStyles.confirmButton,
           {
@@ -60,6 +116,10 @@ const PlaceModal = ({ isVisible, closeModal }) => (
 PlaceModal.propTypes = {
   isVisible: PropTypes.bool,
   closeModal: PropTypes.func,
+  place: PropTypes.string,
+  setPlace: PropTypes.func,
+  loading: PropTypes.bool,
+  setAndSaveWeddingPlace: PropTypes.func,
 };
 
 export default PlaceModal;
