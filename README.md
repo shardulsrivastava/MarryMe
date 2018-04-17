@@ -18,5 +18,5 @@ All settings and installing dependencies are on [Getting Started guide](https://
 1. Run developement server `$ yarn start` 
 2. Build
     - run for Android `$ yarn install:android`
-    - run for iOS via Xcode or `$ yarn install:ios`
+    - run for iOS via Xcode or `$ yarn install:ios` or run via xCode
 
