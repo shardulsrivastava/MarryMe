@@ -10,9 +10,16 @@ const EventList = () => (
         title: 'Zoznam úloh'
       }}
     />
-    <Text style={{ fontSize:35, fontWeight: 'bold' }}>
-      Čoskoro
-    </Text>
+    <View
+      style={ [
+        AppStyles.flex1,
+        { alignItems: 'center', justifyContent: 'center' }
+      ] }
+    >
+      <Text style={{ fontSize:35, fontWeight: 'bold' }}>
+        Čoskoro
+      </Text>
+    </View>
   </View>
 );
 

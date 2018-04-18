@@ -1,7 +1,14 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import { AppStyles } from '../../styles';
+import { View } from 'react-native';
+import { AppStyles, AppColors } from '../../styles';
 import { NavBar } from '../ui';
+import { Text } from 'react-native-elements';
+
+// Components
+import BudgetHeader from './BudgetHeader';
+
+const value1 = 150;
+const value2 = 3000;
 
 const Budget = () => (
   <View style={ AppStyles.flex1 }>
@@ -10,9 +17,12 @@ const Budget = () => (
         title: 'Rozpočet'
       }}
     />
-    <Text style={{ fontSize:35, fontWeight: 'bold' }}>
-      Čoskoro
-    </Text>
+    <View style={ AppStyles.flex1 }>
+      <BudgetHeader
+        value1={ value1 }
+        value2={ value2 }
+      />
+    </View>
   </View>
 );
 
