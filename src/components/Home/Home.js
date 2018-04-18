@@ -4,7 +4,6 @@ import { ScrollView, View } from 'react-native';
 import { AppStyles, AppColors } from '../../styles';
 import { Divider, Text } from 'react-native-elements';
 import { Spacer, NavBar } from '../ui';
-import moment from 'moment';
 
 // Components
 import HomeHeader from './HomeHeader';
@@ -21,8 +20,12 @@ const Home = ({
   setPlaceModalVisible,
   dateModalVisible,
   setDateModalVisible,
-}) => (
-  <View style={ AppStyles.flex1 }>
+}) => {
+  const toDate = Date.parse( weddingDate ) - Date.parse (new Date() );
+  const daysToWedding = Math.floor( toDate / ( 1000 * 60 * 60 * 24 ) );
+
+
+  return (<View style={ AppStyles.flex1 }>
     <NavBar
       title={{
         title: 'MarryMe.'
@@ -53,7 +56,7 @@ const Home = ({
       <HomeCard
         iconLeft
         icon={ 'alarm' }
-        value={ weddingDate ? moment(weddingDate).format('DD.MM.YYYY') : 'Nastaviť dátum' }
+        value={ weddingDate ? `o ${daysToWedding.toString()} dní` : 'Nastaviť dátum' }
         color={ '#A8EFEB' }
         onPress={ () => setDateModalVisible(true) }
       />
@@ -82,8 +85,8 @@ const Home = ({
       isVisible={ dateModalVisible }
       closeModal={ () => setDateModalVisible(false) }
     />
-  </View>
-);
+  </View>);
+};
 
 Home.propTypes = {
   brideName: PropTypes.string,
