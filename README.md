@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/massoprod/rnapp/blob/master/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png?raw=true" width="150"></p>
+<p align="center"><img src="https://github.com/massoprod/rnapp/blob/master/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png?raw=true" width="150"></p>
 
 
 # MarryMe - mobile wedding planner
@@ -18,5 +18,5 @@ All settings and installing dependencies are on [Getting Started guide](https://
 1. Run developement server `$ yarn start` 
 2. Build
     - run for Android `$ yarn install:android`
-    - run for iOS via Xcode or `$ yarn install:ios`
+    - run for iOS via Xcode or `$ yarn install:ios` or run via xCode
 
