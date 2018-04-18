@@ -1,10 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { AppStyles } from '../../styles';
+import { AppStyles, AppColors } from '../../styles';
 import { NavBar } from '../ui';
 
 const EventList = () => (
-  <View style={ AppStyles.flex1 }>
+  <View style={ [
+    AppStyles.flex1,
+    { backgroundColor: AppColors.app.white }
+  ] }>
     <NavBar
       title={{
         title: 'Zoznam úloh'
