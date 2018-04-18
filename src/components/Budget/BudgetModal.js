@@ -14,7 +14,7 @@ const BudgetModal = ({
   >
      <NavBar
       title={{
-        title: 'Nastaviť rozpočet'
+        title: 'Pridať položku'
       }}
       rightButton={
         <TouchableOpacity

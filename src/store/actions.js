@@ -26,6 +26,13 @@ export const setWeddingDate = date => ({
   payload: date,
 });
 
+//Budget actions
+export const SET_MAX_BUDGET = 'SET_MAX_BUDGET';
+export const setMaxBudget = budget => ({
+  type: SET_MAX_BUDGET,
+  payload: budget,
+});
+
 //App actions
 export const SET_APP_READY = 'SET_APP_READY';
 

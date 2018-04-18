@@ -44,7 +44,7 @@ const withDateModalHandlers =  withHandlers({
     }
     
   },
-})
+});
 
 export default compose(
   withReduxConnect,

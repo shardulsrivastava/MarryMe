@@ -8,12 +8,18 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 // Components
 import BudgetHeader from './BudgetHeader';
-import BudgetModal from './BudgetModal';
+import BudgetModal from './BudgetModalHoc';
+import SetBudgetModal from './SetBudgetModalHoc';
 
-const value1 = 150;
-const value2 = 3000;
+const value1 = 0;
 
-const Budget = ({ budgetModalVisible, setBudgetModalVisible }) => (
+const Budget = ({
+  budgetModalVisible,
+  setBudgetModalVisible,
+  maxBudget,
+  maxBudgetModalVisible,
+  setMaxBudgetModalVisible,
+}) => (
   <View style={ [
     AppStyles.flex1,
     { backgroundColor: AppColors.app.white }
@@ -31,19 +37,24 @@ const Budget = ({ budgetModalVisible, setBudgetModalVisible }) => (
           }}
           onPress={ () => setBudgetModalVisible(true) }
         >
-          <Icon name={ 'ios-settings-outline' } size={ 25 } color={ AppColors.app.black } />
+          <Icon name={ 'ios-add' } size={ 30 } color={ AppColors.app.black } />
         </TouchableOpacity>
       }
     />
     <View style={ AppStyles.flex1 }>
       <BudgetHeader
         value1={ value1 }
-        value2={ value2 }
+        value2={ maxBudget }
+        setMaxBudget={ () => setMaxBudgetModalVisible(true) }
       />
     </View>
     <BudgetModal
       isVisible={ budgetModalVisible }
       closeModal={ () => setBudgetModalVisible(false) }
+    />
+    <SetBudgetModal
+      isVisible={ maxBudgetModalVisible }
+      closeModal={ () => setMaxBudgetModalVisible(false) }
     />
   </View>
 );
@@ -51,6 +62,9 @@ const Budget = ({ budgetModalVisible, setBudgetModalVisible }) => (
 BudgetModal.propTypes = { 
   budgetModalVisible: PropTypes.bool,
   setBudgetModalVisible: PropTypes.func,
+  maxBudget: PropTypes.number,
+  maxBudgetModalVisible: PropTypes.bool,
+  setMaxBudgetModalVisible: PropTypes.func,
 };
 
 export default Budget;

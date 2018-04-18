@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import { AppStyles, AppColors } from '../../styles';
 import { NavBar } from '../ui';
 import { Text } from 'react-native-elements';
 
-const BudgetHeader = ({ value1, value2 }) => (
+const BudgetHeader = ({ value1, value2, setMaxBudget }) => (
   <View style={ AppStyles.row }>
     <View style={{
       backgroundColor:'#A8EFEB',
@@ -39,7 +39,7 @@ const BudgetHeader = ({ value1, value2 }) => (
       }}>
         ROZPOČET
       </Text>
-      <View style={{ backgroundColor: '#313132', width: '100%', alignItems: 'center' }}>
+      { value2 ? <View style={{ backgroundColor: '#313132', width: '100%', alignItems: 'center' }}>
         <Text style={{
           color: AppColors.app.white,
           fontSize: 20,
@@ -48,14 +48,26 @@ const BudgetHeader = ({ value1, value2 }) => (
         }}>
           { `${value2}€` }
         </Text>
-      </View>
+      </View> : <TouchableOpacity
+        onPress={ setMaxBudget }
+        style={{ backgroundColor: '#313132', width: '100%', alignItems: 'center' }}>
+        <Text style={{
+          color: AppColors.app.white,
+          fontSize: 20,
+          padding: 20,
+          fontWeight: '300'
+        }}>
+          Nastaviť
+        </Text>
+      </TouchableOpacity> }
     </View>
-      </View>
+  </View>
 );
 
 BudgetHeader.propTypes = {
   value1: PropTypes.number,
   value2: PropTypes.number,
+  setMaxBudget: PropTypes.func,
 };
 
 export default BudgetHeader;

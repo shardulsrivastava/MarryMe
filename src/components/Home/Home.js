@@ -20,6 +20,8 @@ const Home = ({
   setPlaceModalVisible,
   dateModalVisible,
   setDateModalVisible,
+  goToBudget,
+  maxBudget,
 }) => {
   const toDate = Date.parse( weddingDate ) - Date.parse (new Date() );
   const daysToWedding = Math.floor( toDate / ( 1000 * 60 * 60 * 24 ) );
@@ -71,9 +73,9 @@ const Home = ({
       <HomeCard
         iconLeft
         icon={ 'account-balance-wallet' }
-        value={ '150€ / 3000€' }
+        value={ maxBudget ? `0€ / ${maxBudget}€` : 'Nastaviť rozpočet' }
         color={ '#EEB9DB' }
-        onPress={ () => console.log('budget') }
+        onPress={ () => goToBudget() }
       />
     </ScrollView>
 
@@ -97,6 +99,8 @@ Home.propTypes = {
   setPlaceModalVisible: PropTypes.func,
   dateModalVisible: PropTypes.bool,
   setDateModalVisible: PropTypes.func,
+  goToBudget: PropTypes.func,
+  maxBudget: PropTypes.number,
 };
 
 export default Home;

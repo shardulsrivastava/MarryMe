@@ -11,7 +11,7 @@ persistStore(
   store,
   {
     storage: AsyncStorage,
-    whitelist: ['couple', 'app', 'place', 'date'],
+    whitelist: ['couple', 'app', 'place', 'date', 'budget'],
   },
   () => {
     store.dispatch(setAppReady())

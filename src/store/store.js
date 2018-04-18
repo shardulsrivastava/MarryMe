@@ -1,6 +1,12 @@
 import { createStore, combineReducers, compose } from 'redux';
 import { autoRehydrate } from 'redux-persist';
-import { coupleReducer, initReducer, placeReducer, dateReducer } from './reducers';
+import {
+  coupleReducer,
+  initReducer,
+  placeReducer,
+  dateReducer,
+  budgetReducer,
+} from './reducers';
 
 export default createStore(
   combineReducers({
@@ -8,6 +14,7 @@ export default createStore(
     couple: coupleReducer,
     place: placeReducer,
     date: dateReducer,
+    budget: budgetReducer,
   }),
   {},
   compose(
