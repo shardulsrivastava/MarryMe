@@ -12,8 +12,6 @@ import PlaceModal from './Modals/PlaceModalHoc';
 import DateModal from './Modals/DateModalHoc';
 
 const Home = ({
-  brideName,
-  groomName,
   city,
   weddingDate,
   placeModalVisible,
@@ -42,20 +40,6 @@ const Home = ({
       },
     ] }
     >
-      <Text h2 style={{
-        paddingBottom: 25,
-        fontWeight: 'bold',
-        color: AppColors.app.black,
-      }}
-      >
-        Informácie
-      </Text>
-      <HomeHeader
-        brideName={ brideName }
-        groomName={ groomName }
-      />
-      <Divider style={{ backgroundColor: AppColors.brand.gray }} />
-      <Spacer size={ 15 } />
       <HomeCard
         iconLeft
         icon={ 'alarm' }
@@ -92,8 +76,6 @@ const Home = ({
 };
 
 Home.propTypes = {
-  brideName: PropTypes.string,
-  groomName: PropTypes.string,
   city: PropTypes.string,
   weddingDate: PropTypes.string,
   placeModalVisible: PropTypes.bool,

@@ -5,7 +5,7 @@ import { Spacer } from '../../ui';
 import { Button, Text } from 'react-native-elements';
 import { AppStyles, AppColors } from '../../../styles';
 
-const Login = ({ goToRegister, appVersion }) => {
+const Login = ({ continueToApp, appVersion }) => {
   return (
     <View
       style={{
@@ -31,7 +31,7 @@ const Login = ({ goToRegister, appVersion }) => {
         <Spacer size={ 40 } />
         <Button
           title='POĎME NA TO!'
-          onPress={ goToRegister }
+          onPress={ () => continueToApp() }
           buttonStyle={ [
             AppStyles.loginConfirmButton,
             { backgroundColor: AppColors.brand.pink }
@@ -53,7 +53,7 @@ const Login = ({ goToRegister, appVersion }) => {
 };
 
 Login.propTypes = {
-  goToRegister: PropTypes.func,
+  continueToApp: PropTypes.func,
   appVersion: PropTypes.string,
 };
 

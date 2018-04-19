@@ -1,6 +1,4 @@
 const initialStateCouple = {
-  bride: null,
-  groom: null,
   status: null,
 };
 
@@ -9,8 +7,6 @@ export default (state = initialStateCouple, action) => {
     case 'SET_LOGGED_COUPLE':
       return {
         ...state,
-        bride: action.payload.bride,
-        groom: action.payload.groom,
         status: action.payload.status,
       };
 

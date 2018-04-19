@@ -6,9 +6,6 @@ import { connect } from 'react-redux';
 import Home from './Home';
 
 const withReduxStates = connect(state => ({
-  //Logged couple states
-  brideName: state.couple.bride,
-  groomName: state.couple.groom,
   //basic informations states
   city: state.place.city,
   weddingDate: state.date.weddingDate,
