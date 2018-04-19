@@ -14,7 +14,7 @@ const withReduxConnect = connect(
   dispatch => bindActionCreators({ setMaxBudget }, dispatch),
 );
 
-const withDateModalStates = compose(
+const withBudgetModalStates = compose(
   withState('budget', 'setBudget', null),
   withState('loading', 'setLoading', false),
 );
@@ -30,7 +30,7 @@ const withBudgetlHandlers =  withHandlers({
 
       if ( budget ) {
         setMaxBudget({
-         maxBudget: parseInt(budget),
+         maxBudget: parseFloat(budget),
         });
   
         Alert.alert('Rozpočet bol nastavený');
@@ -48,6 +48,6 @@ const withBudgetlHandlers =  withHandlers({
 
 export default compose(
   withReduxConnect,
-  withDateModalStates,
+  withBudgetModalStates,
   withBudgetlHandlers,
 )(SetBudgetModal);

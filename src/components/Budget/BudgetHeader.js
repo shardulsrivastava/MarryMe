@@ -13,7 +13,7 @@ const BudgetHeader = ({ value1, value2, setMaxBudget }) => (
       alignItems: 'center'
     }}>
       <Text style={{ padding: 10, fontSize: 17, fontWeight: 'bold' }}>
-        MINUTÉ
+        VÝDAVKY
       </Text>
       <View style={{
         backgroundColor:'#7ae2db',

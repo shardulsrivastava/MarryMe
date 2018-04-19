@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, FlatList } from 'react-native';
 import { AppStyles, AppColors } from '../../styles';
 import { NavBar } from '../ui';
 import { Text } from 'react-native-elements';
@@ -10,6 +10,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import BudgetHeader from './BudgetHeader';
 import BudgetModal from './BudgetModalHoc';
 import SetBudgetModal from './SetBudgetModalHoc';
+import BudgetListRow from './BudgetListRow';
 
 const value1 = 0;
 
@@ -19,6 +20,7 @@ const Budget = ({
   maxBudget,
   maxBudgetModalVisible,
   setMaxBudgetModalVisible,
+  budgetData,
 }) => (
   <View style={ [
     AppStyles.flex1,
@@ -41,13 +43,21 @@ const Budget = ({
         </TouchableOpacity>
       }
     />
-    <View style={ AppStyles.flex1 }>
-      <BudgetHeader
+    <FlatList
+      data={ budgetData }
+      ListEmptyComponent={ () => <Text h4 style={{ alignSelf: 'center', marginTop: 20 }}>Prázdny zoznam</Text> }
+      ListHeaderComponent={ () => (<BudgetHeader
         value1={ value1 }
         value2={ maxBudget }
         setMaxBudget={ () => setMaxBudgetModalVisible(true) }
-      />
-    </View>
+      />) }
+      keyExtractor={ budgetItem => budgetItem.id }
+      renderItem={ budget => (<BudgetListRow
+        title={ budget.item.budgetTitle }
+        value={ budget.item.budgetValue }
+      />) }
+      style={ AppStyles.flex1 }
+    />
     <BudgetModal
       isVisible={ budgetModalVisible }
       closeModal={ () => setBudgetModalVisible(false) }
@@ -59,12 +69,13 @@ const Budget = ({
   </View>
 );
 
-BudgetModal.propTypes = { 
+Budget.propTypes = { 
   budgetModalVisible: PropTypes.bool,
   setBudgetModalVisible: PropTypes.func,
   maxBudget: PropTypes.number,
   maxBudgetModalVisible: PropTypes.bool,
   setMaxBudgetModalVisible: PropTypes.func,
+  budgetData: PropTypes.array,
 };
 
 export default Budget;

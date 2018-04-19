@@ -14,6 +14,7 @@ export const resetLoggedCouple = () => ({
 
 //Place actions
 export const SET_PLACE_CITY = 'SET_PLACE_CITY';
+
 export const setPlaceCity = place => ({
   type: SET_PLACE_CITY,
   payload: place,
@@ -21,6 +22,7 @@ export const setPlaceCity = place => ({
 
 //Date actions
 export const SET_WEDDING_DATE = 'SET_WEDDING_DATE';
+
 export const setWeddingDate = date => ({
   type: SET_WEDDING_DATE,
   payload: date,
@@ -28,10 +30,18 @@ export const setWeddingDate = date => ({
 
 //Budget actions
 export const SET_MAX_BUDGET = 'SET_MAX_BUDGET';
+export const ADD_TO_BUDGET = 'ADD_TO_BUDGET';
+
 export const setMaxBudget = budget => ({
   type: SET_MAX_BUDGET,
   payload: budget,
 });
+
+export const addToBudget = budgets => ({
+  type: ADD_TO_BUDGET,
+  payload: budgets,
+})
+
 
 //App actions
 export const SET_APP_READY = 'SET_APP_READY';
