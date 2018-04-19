@@ -7,11 +7,15 @@ import { Alert } from 'react-native';
 import BudgetModal from './BudgetModal';
 
 // store
-import { addToBudget } from '../../store/actions';
+import { addToBudget, setBudgetTotal } from '../../store/actions';
+
+const withReduxStates = connect(state => ({
+  budgetSum: state.budget.total,
+}));
 
 const withReduxConnect = connect(
   state => ({}),
-  dispatch => bindActionCreators({ addToBudget }, dispatch),
+  dispatch => bindActionCreators({ addToBudget, setBudgetTotal }, dispatch),
 );
 
 const withBudgetModalStates = compose(
@@ -21,8 +25,10 @@ const withBudgetModalStates = compose(
 );
 
 const withBudgetlHandlers =  withHandlers({
-  addItemToBudget: ({ setLoading, addToBudget, title, setTitle, value, setValue }) => () => {
+  addItemToBudget: ({ setLoading, addToBudget, title, setTitle, value, setValue, budgetSum, setBudgetTotal }) => () => {
     setLoading(true);
+
+    const itemValue = parseFloat(value.replace(',','.'))
 
     try {
       if ( !title || !value ) {
@@ -32,8 +38,11 @@ const withBudgetlHandlers =  withHandlers({
       if ( title && value ) {
         addToBudget({
          budgetTitle: title,
-         budgetValue: parseFloat(value)
+         budgetValue: itemValue
         });
+        setBudgetTotal({
+          total: budgetSum + itemValue
+        })
   
         Alert.alert('Položka bola pridaná');
       }
@@ -51,6 +60,7 @@ const withBudgetlHandlers =  withHandlers({
 
 export default compose(
   withReduxConnect,
+  withReduxStates,
   withBudgetModalStates,
   withBudgetlHandlers,
 )(BudgetModal);

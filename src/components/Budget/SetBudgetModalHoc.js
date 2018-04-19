@@ -23,6 +23,8 @@ const withBudgetlHandlers =  withHandlers({
   setMaximalBudget: ({ setLoading, setMaxBudget, budget, setBudget }) => () => {
     setLoading(true);
 
+    const itemValue = parseFloat(budget.replace(',','.'))
+
     try {
       if ( !budget ) {
         Alert.alert('Zadajte rozpočet');
@@ -30,7 +32,7 @@ const withBudgetlHandlers =  withHandlers({
 
       if ( budget ) {
         setMaxBudget({
-         maxBudget: parseFloat(budget),
+         maxBudget: itemValue,
         });
   
         Alert.alert('Rozpočet bol nastavený');

@@ -12,8 +12,6 @@ import BudgetModal from './BudgetModalHoc';
 import SetBudgetModal from './SetBudgetModalHoc';
 import BudgetListRow from './BudgetListRow';
 
-const value1 = 0;
-
 const Budget = ({
   budgetModalVisible,
   setBudgetModalVisible,
@@ -21,6 +19,7 @@ const Budget = ({
   maxBudgetModalVisible,
   setMaxBudgetModalVisible,
   budgetData,
+  budgetTotal,
 }) => (
   <View style={ [
     AppStyles.flex1,
@@ -47,7 +46,7 @@ const Budget = ({
       data={ budgetData }
       ListEmptyComponent={ () => <Text h4 style={{ alignSelf: 'center', marginTop: 20 }}>Prázdny zoznam</Text> }
       ListHeaderComponent={ () => (<BudgetHeader
-        value1={ value1 }
+        value1={ budgetTotal }
         value2={ maxBudget }
         setMaxBudget={ () => setMaxBudgetModalVisible(true) }
       />) }
@@ -76,6 +75,7 @@ Budget.propTypes = {
   maxBudgetModalVisible: PropTypes.bool,
   setMaxBudgetModalVisible: PropTypes.func,
   budgetData: PropTypes.array,
+  budgetTotal: PropTypes.number,
 };
 
 export default Budget;

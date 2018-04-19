@@ -31,6 +31,7 @@ export const setWeddingDate = date => ({
 //Budget actions
 export const SET_MAX_BUDGET = 'SET_MAX_BUDGET';
 export const ADD_TO_BUDGET = 'ADD_TO_BUDGET';
+export const SET_BUDGET_TOTAL = 'SET_BUDGET_TOTAL';
 
 export const setMaxBudget = budget => ({
   type: SET_MAX_BUDGET,
@@ -40,6 +41,11 @@ export const setMaxBudget = budget => ({
 export const addToBudget = budgets => ({
   type: ADD_TO_BUDGET,
   payload: budgets,
+})
+
+export const setBudgetTotal = total => ({
+  type: SET_BUDGET_TOTAL,
+  payload: total,
 })
 
 

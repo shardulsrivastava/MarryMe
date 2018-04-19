@@ -1,5 +1,6 @@
 const initialState = {
   maxBudget: null,
+  total: 0,
   budgets: [],
 };
 
@@ -11,16 +12,12 @@ export default (state = initialState, action) => {
         maxBudget: action.payload.maxBudget,
       };
 
-    /*case 'ADD_TO_BUDGET':
+    case 'SET_BUDGET_TOTAL':
       return {
         ...state,
-        budgets: [
-          {
-            budgetTitle: action.payload.budgetTitle,
-            budgetValue: action.payload.budgetValue
-          }
-        ]
-      };*/
+        total: action.payload.total,
+      };
+
     case 'ADD_TO_BUDGET':
       const shortId = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
       const newItem = {
@@ -30,6 +27,7 @@ export default (state = initialState, action) => {
       }
       return {
         ...state,
+        total: action.payload.budgetTotal,
         budgets: [newItem, ...state.budgets],
       }
 

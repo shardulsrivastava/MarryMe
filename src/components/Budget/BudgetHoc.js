@@ -7,6 +7,7 @@ import Budget from './Budget';
 
 const withBudget = connect(state => ({
   maxBudget: state.budget.maxBudget,
+  budgetTotal: state.budget.total,
   budgetData: state.budget.budgets,
 }));
 

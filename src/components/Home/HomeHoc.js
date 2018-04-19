@@ -14,6 +14,7 @@ const withReduxStates = connect(state => ({
   weddingDate: state.date.weddingDate,
   //budget states
   maxBudget: state.budget.maxBudget,
+  budgetTotal: state.budget.total,
 }));
 
 const withHomeStates = compose(

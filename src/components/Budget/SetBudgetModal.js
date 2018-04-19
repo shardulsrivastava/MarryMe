@@ -53,6 +53,7 @@ const SetBudgetModal = ({
         onChangeText={ value => setBudget(value) }
         containerStyle={ AppStyles.loginInputContainer }
         inputStyle={ AppStyles.loginInput }
+        keyboardType={ 'numeric' }
       />
       <Spacer size={ 15 } />
       <Button
