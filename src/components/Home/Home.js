@@ -6,7 +6,6 @@ import { Divider, Text } from 'react-native-elements';
 import { Spacer, NavBar } from '../ui';
 
 // Components
-import HomeHeader from './HomeHeader';
 import HomeCard from './HomeCard';
 import PlaceModal from './Modals/PlaceModalHoc';
 import DateModal from './Modals/DateModalHoc';
@@ -33,13 +32,21 @@ const Home = ({
       }}
     />
     <ScrollView style={ [
-      //AppStyles.flex1,
+      AppStyles.flex1,
       {
         padding: 10,
         backgroundColor: AppColors.app.white,
       },
     ] }
     >
+      <Text h3 style={{	
+       paddingBottom: 25,
+       fontWeight: 'bold',	
+       color: AppColors.app.black,	
+      }}	
+      >	
+        Informácie	
+      </Text>
       <HomeCard
         iconLeft
         icon={ 'alarm' }

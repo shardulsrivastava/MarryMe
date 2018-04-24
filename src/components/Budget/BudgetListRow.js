@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
 import { AppStyles, AppColors } from '../../styles';
 import { Text } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const BudgetListRow = ({ title, value }) => (
   <TouchableOpacity
@@ -10,26 +11,42 @@ const BudgetListRow = ({ title, value }) => (
     activeOpacity={ 0.6 }
     style={ [
       AppStyles.simpleCard,
-      AppStyles.row,
-      {
+      { 
+        backgroundColor: '#F0F0F0',
         marginTop: 10,
         marginHorizontal: 10,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: '#F0F0F0',
       }
     ] }
   >
-    <Text
-      style={{ fontSize: 16, color: AppColors.app.black }}
-    >
-      { title } 
-    </Text>
-    <Text
-      style={{ fontSize: 18, fontWeight: 'bold', color: AppColors.app.black }}
-    >
-      { `${value}€` } 
-    </Text>
+    <View style={ [
+      AppStyles.row,
+      { justifyContent: 'flex-end' }
+    ] }>
+      <TouchableOpacity>
+        <Icon
+          name={ 'ios-close' }
+          size={ 30 }
+        />
+      </TouchableOpacity>
+    </View>
+    <View style={ [
+      AppStyles.row,
+      {
+        justifyContent: 'space-between',
+        paddingTop: 5,
+      },
+    ] }>
+      <Text
+        style={{ fontSize: 16, color: AppColors.app.black }}
+      >
+        { title } 
+      </Text>
+      <Text
+        style={{ fontSize: 18, fontWeight: 'bold', color: AppColors.app.black }}
+      >
+        { `${value}€` } 
+      </Text>
+    </View>
   </TouchableOpacity>
 );
 

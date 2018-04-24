@@ -16,6 +16,7 @@ const SetBudgetModal = ({
 }) => (
   <Modal
     visible={ isVisible }
+    onRequestClose={ closeModal }
   >
      <NavBar
       title={{
