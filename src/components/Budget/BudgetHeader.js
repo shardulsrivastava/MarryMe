@@ -39,7 +39,9 @@ const BudgetHeader = ({ value1, value2, setMaxBudget }) => (
       }}>
         ROZPOČET
       </Text>
-      { value2 ? <View style={{ backgroundColor: '#313132', width: '100%', alignItems: 'center' }}>
+      { value2 ? <TouchableOpacity
+        onPress={ setMaxBudget }
+        style={{ backgroundColor: '#313132', width: '100%', alignItems: 'center' }}>
         <Text style={{
           color: AppColors.app.white,
           fontSize: 20,
@@ -48,7 +50,7 @@ const BudgetHeader = ({ value1, value2, setMaxBudget }) => (
         }}>
           { `${value2}€` }
         </Text>
-      </View> : <TouchableOpacity
+      </TouchableOpacity> : <TouchableOpacity
         onPress={ setMaxBudget }
         style={{ backgroundColor: '#313132', width: '100%', alignItems: 'center' }}>
         <Text style={{

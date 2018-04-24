@@ -32,6 +32,7 @@ export const setWeddingDate = date => ({
 export const SET_MAX_BUDGET = 'SET_MAX_BUDGET';
 export const ADD_TO_BUDGET = 'ADD_TO_BUDGET';
 export const SET_BUDGET_TOTAL = 'SET_BUDGET_TOTAL';
+export const DELETE_BUDGET_COLUMN = 'DELETE_BUDGET_COLUMN';
 
 export const setMaxBudget = budget => ({
   type: SET_MAX_BUDGET,
@@ -48,6 +49,10 @@ export const setBudgetTotal = total => ({
   payload: total,
 })
 
+export const deleteBudgetColumn = payload => ({
+  type: DELETE_BUDGET_COLUMN,
+  payload,
+});
 
 //App actions
 export const SET_APP_READY = 'SET_APP_READY';

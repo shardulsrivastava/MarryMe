@@ -31,6 +31,14 @@ export default (state = initialState, action) => {
         budgets: [newItem, ...state.budgets],
       }
 
+    case 'DELETE_BUDGET_COLUMN':
+      const { payload: { id } } = action
+      const newItems = state.budgets.filter(item => item.id !== id)
+      return {
+        ...state,
+        budgets: newItems,
+      }
+
     default:
       return state;
   }

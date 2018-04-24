@@ -23,7 +23,9 @@ const withBudgetlHandlers =  withHandlers({
   setMaximalBudget: ({ setLoading, setMaxBudget, budget, setBudget }) => () => {
     setLoading(true);
 
-    const itemValue = parseFloat(budget.replace(',','.'))
+    if ( budget ) {
+      const itemValue = parseFloat(budget.replace(',','.'));
+    }
 
     try {
       if ( !budget ) {

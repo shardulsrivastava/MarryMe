@@ -20,6 +20,7 @@ const Budget = ({
   setMaxBudgetModalVisible,
   budgetData,
   budgetTotal,
+  deleteItem,
 }) => (
   <View style={ [
     AppStyles.flex1,
@@ -54,6 +55,10 @@ const Budget = ({
       renderItem={ budget => (<BudgetListRow
         title={ budget.item.budgetTitle }
         value={ budget.item.budgetValue }
+        onPressDelete={ () => deleteItem({
+          id: budget.item.id,
+          value: budget.item.budgetValue,
+        }) }
       />) }
       style={ AppStyles.flex1 }
     />
@@ -76,6 +81,7 @@ Budget.propTypes = {
   setMaxBudgetModalVisible: PropTypes.func,
   budgetData: PropTypes.array,
   budgetTotal: PropTypes.number,
+  deleteItem: PropTypes.func,
 };
 
 export default Budget;

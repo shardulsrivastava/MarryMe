@@ -5,7 +5,7 @@ import { AppStyles, AppColors } from '../../styles';
 import { Text } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const BudgetListRow = ({ title, value }) => (
+const BudgetListRow = ({ title, value, onPressDelete }) => (
   <TouchableOpacity
     onPress={ () => null }
     activeOpacity={ 0.6 }
@@ -22,7 +22,9 @@ const BudgetListRow = ({ title, value }) => (
       AppStyles.row,
       { justifyContent: 'flex-end' }
     ] }>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={ onPressDelete }
+      >
         <Icon
           name={ 'ios-close' }
           size={ 30 }
@@ -53,6 +55,7 @@ const BudgetListRow = ({ title, value }) => (
 BudgetListRow.propTypes = {
   title: PropTypes.string,
   value: PropTypes.number,
+  onPressDelete: PropTypes.func,
 };
 
 export default BudgetListRow;
