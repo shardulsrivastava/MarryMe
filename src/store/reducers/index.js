@@ -3,6 +3,7 @@ import initReducer from './initReducer';
 import placeReducer from './placeReducer';
 import dateReducer from './dateReducer';
 import budgetReducer from './budgetReducer';
+import todoReducer from './todoReducer';
 
 export {
   coupleReducer,
@@ -10,4 +11,5 @@ export {
   initReducer,
   dateReducer,
   budgetReducer,
+  todoReducer,
 };

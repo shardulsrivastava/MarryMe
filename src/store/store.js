@@ -6,6 +6,7 @@ import {
   placeReducer,
   dateReducer,
   budgetReducer,
+  todoReducer,
 } from './reducers';
 
 export default createStore(
@@ -15,6 +16,7 @@ export default createStore(
     place: placeReducer,
     date: dateReducer,
     budget: budgetReducer,
+    todo: todoReducer,
   }),
   {},
   compose(

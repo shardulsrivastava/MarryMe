@@ -20,6 +20,8 @@ const Home = ({
   goToBudget,
   maxBudget,
   budgetTotal,
+  goToEventList,
+  todos,
 }) => {
   const toDate = Date.parse( weddingDate ) - Date.parse (new Date() );
   const daysToWedding = Math.floor( toDate / ( 1000 * 60 * 60 * 24 ) );
@@ -49,14 +51,14 @@ const Home = ({
       </Text>
       <HomeCard
         iconLeft
-        icon={ 'alarm' }
+        icon={ 'ios-time-outline' }
         value={ weddingDate ? `o ${daysToWedding.toString()} dní` : 'Nastaviť dátum' }
         color={ '#A8EFEB' }
         onPress={ () => setDateModalVisible(true) }
       />
       <Spacer size={ 10 } />
       <HomeCard
-        icon={ 'place' }
+        icon={ 'ios-pin-outline' }
         value={ city ? city : 'Nastaviť mesto' }
         color={ '#D6E5F3' }
         onPress={ () => setPlaceModalVisible(true) }
@@ -64,10 +66,17 @@ const Home = ({
       <Spacer size={ 10 } />
       <HomeCard
         iconLeft
-        icon={ 'account-balance-wallet' }
+        icon={ 'ios-cash-outline' }
         value={ maxBudget ? `${budgetTotal}€ / ${maxBudget}€` : 'Nastaviť rozpočet' }
         color={ '#EEB9DB' }
         onPress={ () => goToBudget() }
+      />
+      <Spacer size={ 10 } />
+      <HomeCard
+        icon={ 'ios-checkmark-circle-outline' }
+        value={ `0 / ${todos.length}` }
+        color={ '#D6D0E4' }
+        onPress={ () => goToEventList() }
       />
     </ScrollView>
 
@@ -92,6 +101,8 @@ Home.propTypes = {
   goToBudget: PropTypes.func,
   maxBudget: PropTypes.number,
   budgetTotal: PropTypes.number,
+  goToEventList: PropTypes.func,
+  todos: PropTypes.array,
 };
 
 export default Home;

@@ -12,6 +12,8 @@ const withReduxStates = connect(state => ({
   //budget states
   maxBudget: state.budget.maxBudget,
   budgetTotal: state.budget.total,
+  //todos states
+  todos: state.todo.todos,
 }));
 
 const withHomeStates = compose(
@@ -23,6 +25,10 @@ const withHomeHandlers =  withHandlers({
   goToBudget: props => () => {
     const { navigation } = props;
     navigation.navigate('Budget');
+  },
+  goToEventList: props => () => {
+    const { navigation } = props;
+    navigation.navigate('EventList');
   },
 })
 

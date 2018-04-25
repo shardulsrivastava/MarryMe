@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native';
 import { AppStyles, AppColors } from '../../styles';
 import { Text } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const HomeCard = ({
   iconLeft,
@@ -18,7 +18,7 @@ const HomeCard = ({
         onPress={ onPress }
         activeOpacity={ 0.6 }
         style={ [
-          AppStyles.shadowCard,
+          AppStyles.simpleCard,
           AppStyles.row,
           {
             justifyContent: 'space-between',
@@ -30,7 +30,7 @@ const HomeCard = ({
         <Icon
           name={ icon }
           size={ 50 }
-          color={ 'rgba(0,0,0,0.4)' }
+          color={ 'rgba(0,0,0,0.7)' }
           />
         <Text
           style={{ fontSize: 23, fontWeight: '200', color: AppColors.app.black }}
@@ -45,7 +45,7 @@ const HomeCard = ({
         onPress={ onPress }
         activeOpacity={ 0.6 }
         style={ [
-          AppStyles.shadowCard,
+          AppStyles.simpleCard,
           AppStyles.row,
           {
             justifyContent: 'space-between',
@@ -62,7 +62,7 @@ const HomeCard = ({
         <Icon
           name={ icon }
           size={ 50 }
-          color={ 'rgba(0,0,0,0.4)' }
+          color={ 'rgba(0,0,0,0.7)' }
         />
       </TouchableOpacity>
     );
