@@ -28,7 +28,7 @@ const withBudgetlHandlers =  withHandlers({
   addItemToBudget: ({ setLoading, addToBudget, title, setTitle, value, setValue, budgetSum, setBudgetTotal }) => () => {
     setLoading(true);
 
-    const itemValue = parseFloat(value.replace(',','.'))
+    const itemValue = value.includes(',') ? parseFloat(value.replace(',','.')) : parseFloat(value);
 
     try {
       if ( !title || !value ) {
