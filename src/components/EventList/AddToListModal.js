@@ -12,6 +12,7 @@ const AddToListModal = ({
   loading,
   title,
   setTitle,
+  addTodoItem,
 }) => (
   <Modal
     visible={ isVisible }
@@ -58,7 +59,7 @@ const AddToListModal = ({
       <Button
         title='Pridať'
         loading={ loading }
-        onPress={ () => console.log(title) }
+        onPress={ () => addTodoItem() }
         buttonStyle={ [
           AppStyles.confirmButton,
           {
@@ -77,6 +78,7 @@ AddToListModal.propTypes = {
   loading: PropTypes.bool,
   title: PropTypes.string,
   setTitle: PropTypes.func,
+  addTodoItem: PropTypes.func,
 };
 
 export default AddToListModal;

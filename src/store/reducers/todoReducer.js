@@ -8,6 +8,7 @@ export default (state = initialState, action) => {
       const shortId = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
       const newTodo = {
         id: `${shortId()}-${shortId()}`,
+        createdat: action.payload.createdAt,
         text: action.payload.todoText,
         completed: false,
       }
