@@ -57,6 +57,7 @@ export const deleteBudgetColumn = payload => ({
 //Todo actions
 export const ADD_TO_TODO = 'ADD_TO_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
+export const TOOGLE_TODO = 'TOOGLE_TODO';
 
 export const addToTodo = todos => ({
   type: ADD_TO_TODO,
@@ -67,6 +68,11 @@ export const deleteTodo = payload => ({
   type: DELETE_TODO,
   payload,
 });
+
+export const toogleTodo = payload => ({
+  type: TOOGLE_TODO,
+  payload,
+})
 
 //App actions
 export const SET_APP_READY = 'SET_APP_READY';

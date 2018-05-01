@@ -25,6 +25,17 @@ export default (state = initialState, action) => {
         todos: newTodos,
       }
 
+    case 'TOOGLE_TODO':
+      const updatedTodos = state.todos.map(item =>
+        (item.id === action.payload.id)
+          ? {...item, completed: !item.completed}
+          : item
+      )
+      return {
+        ...state,
+        todos: updatedTodos,
+      }
+
     default:
       return state;
   }

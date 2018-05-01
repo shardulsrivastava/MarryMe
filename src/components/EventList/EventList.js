@@ -14,6 +14,7 @@ const EventList = ({
   setListModalVisible,
   todoData,
   deleteItem,
+  toogleItem,
 }) => (
   <View style={ [
     AppStyles.flex1,
@@ -42,7 +43,9 @@ const EventList = ({
       keyExtractor={ todoItem => todoItem.id }
       renderItem={ todo => (<EventListRow
         createdAt={ todo.item.createdat }
-        title={ todo.item.text }
+        text={ todo.item.text }
+        status={ todo.item.completed }
+        changeStatus={ () => toogleItem({ id: todo.item.id }) }
         onPressDelete={ () => deleteItem({ id: todo.item.id }) }
       />) }
       style={ AppStyles.flex1 }
@@ -60,6 +63,7 @@ EventList.propTypes = {
   setListModalVisible: PropTypes.func,
   todoData: PropTypes.array,
   deleteItem: PropTypes.func,
+  toogleItem: PropTypes.func,
 };
 
 

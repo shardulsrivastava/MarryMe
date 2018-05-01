@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import EventList from './EventList';
 
 // store
-import { deleteTodo } from '../../store/actions';
+import { deleteTodo, toogleTodo } from '../../store/actions';
 
 const withEventList = connect(state => ({
   todoData: state.todo.todos,
@@ -15,7 +15,7 @@ const withEventList = connect(state => ({
 
 const withReduxConnect = connect(
   state => ({}),
-  dispatch => bindActionCreators({ deleteTodo }, dispatch),
+  dispatch => bindActionCreators({ deleteTodo, toogleTodo }, dispatch),
 );
 
 const withEventListStates = compose(
@@ -28,6 +28,19 @@ const withTodoHandlers =  withHandlers({
 
     try {
       deleteTodo({
+        id: itemId,
+      });
+
+    } catch(e) {
+      console.log(e);
+    }
+
+  },
+  toogleItem: ({ toogleTodo }) => async args => {
+    itemId = args.id;
+
+    try {
+      toogleTodo({
         id: itemId,
       });
 
