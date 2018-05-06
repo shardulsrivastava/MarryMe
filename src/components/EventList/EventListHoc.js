@@ -21,6 +21,9 @@ const withReduxConnect = connect(
 const withEventListStates = compose(
   withState('listModalVisible', 'setListModalVisible', false),
   withState('searchTodo', 'setFilter', ''),
+  withState('btnGroupState', 'setBtnGroupState', {
+    index: 0,
+  }),
 );
 
 const withTodoHandlers =  withHandlers({

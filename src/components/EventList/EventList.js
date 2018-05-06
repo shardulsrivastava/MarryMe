@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { View, TouchableOpacity, FlatList } from 'react-native';
 import { AppStyles, AppColors } from '../../styles';
 import { NavBar } from '../ui';
-import { Text, SearchBar } from 'react-native-elements';
+import { Text, SearchBar, ButtonGroup } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 // Components
 import AddToListModal from './AddToListModalHoc';
 import EventListRow from './EventListRow';
 
-const filterTodos = (todos, searchTodo) => {
+const filterTodos = (todos, searchTodo, btnIndex) => {
   if ( todos && todos.length > 0 ) {
     return todos.filter((item) => {
       const search = String(searchTodo).toLowerCase()
@@ -22,6 +22,8 @@ const filterTodos = (todos, searchTodo) => {
   }
 };
 
+const buttons = ['Nedokončené', 'Hotové'];
+
 const EventList = ({
   listModalVisible,
   setListModalVisible,
@@ -30,8 +32,13 @@ const EventList = ({
   toogleItem,
   searchTodo,
   setFilter,
-}) => (
-  <View style={ [
+  btnGroupState,
+  setBtnGroupState,
+}) => {
+  const doneTodos = todoData.filter(item => item.completed === true);
+  const unfinishedTodos = todoData.filter(item => item.completed === false);
+
+  return (<View style={ [
     AppStyles.flex1,
     { backgroundColor: AppColors.app.white }
   ] }>
@@ -58,8 +65,13 @@ const EventList = ({
       onChangeText={ value => setFilter(value) }
       placeholder={ 'Vyhľadať položku' }
     />
-    <FlatList
-      data={ filterTodos(todoData, searchTodo) }
+    <ButtonGroup
+      onPress={ index => setBtnGroupState({ ...btnGroupState, index }) }
+      selectedIndex={ btnGroupState.index }
+      buttons={ buttons }
+    />
+    {btnGroupState.index === 0 ? <FlatList
+      data={ filterTodos(unfinishedTodos, searchTodo, btnGroupState.index) }
       ListEmptyComponent={ () => <Text h4 style={{ alignSelf: 'center', marginTop: 20 }}>Prázdny zoznam</Text> }
       keyExtractor={ todoItem => todoItem.id }
       renderItem={ todo => (<EventListRow
@@ -70,14 +82,27 @@ const EventList = ({
         onPressDelete={ () => deleteItem({ id: todo.item.id }) }
       />) }
       style={ AppStyles.flex1 }
-    />
+      /> : <FlatList
+      data={ filterTodos(doneTodos, searchTodo, btnGroupState.index) }
+      ListEmptyComponent={ () => <Text h4 style={{ alignSelf: 'center', marginTop: 20 }}>Prázdny zoznam</Text> }
+      keyExtractor={ todoItem => todoItem.id }
+      renderItem={ todo => (<EventListRow
+        createdAt={ todo.item.createdat }
+        text={ todo.item.text }
+        status={ todo.item.completed }
+        changeStatus={ () => toogleItem({ id: todo.item.id }) }
+        onPressDelete={ () => deleteItem({ id: todo.item.id }) }
+      />) }
+      style={ AppStyles.flex1 }
+      /> }
+    
 
     <AddToListModal
       isVisible={ listModalVisible }
       closeModal={ () => setListModalVisible(false) }
     />
-  </View>
-);
+  </View>);
+};
 
 EventList.propTypes = { 
   listModalVisible: PropTypes.bool,
@@ -87,6 +112,8 @@ EventList.propTypes = {
   toogleItem: PropTypes.func,
   searchTodo: PropTypes.string,
   setFilter: PropTypes.func,
+  btnGroupState: PropTypes.object,
+  setBtnGroupState: PropTypes.func,
 };
 
 
