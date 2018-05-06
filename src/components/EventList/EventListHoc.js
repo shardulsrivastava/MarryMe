@@ -20,6 +20,7 @@ const withReduxConnect = connect(
 
 const withEventListStates = compose(
   withState('listModalVisible', 'setListModalVisible', false),
+  withState('searchTodo', 'setFilter', ''),
 );
 
 const withTodoHandlers =  withHandlers({

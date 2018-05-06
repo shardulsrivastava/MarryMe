@@ -25,10 +25,10 @@ const withBudgetModalStates = compose(
 );
 
 const withBudgetlHandlers =  withHandlers({
-  addItemToBudget: ({ setLoading, addToBudget, title, setTitle, value, setValue, budgetSum, setBudgetTotal }) => () => {
+  addItemToBudget: ({ setLoading, closeModal, addToBudget, title, setTitle, value, setValue, budgetSum, setBudgetTotal }) => () => {
     setLoading(true);
 
-    const itemValue = value.includes(',') ? parseFloat(value.replace(',','.')) : parseFloat(value);
+    const itemValue = value && value.includes(',') ? parseFloat(value.replace(',','.')) : parseFloat(value);
 
     try {
       if ( !title || !value ) {
@@ -45,6 +45,7 @@ const withBudgetlHandlers =  withHandlers({
         })
   
         Alert.alert('Položka bola pridaná');
+        closeModal();
       }
 
       setTitle(null);

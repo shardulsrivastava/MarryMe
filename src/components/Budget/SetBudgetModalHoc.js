@@ -20,10 +20,10 @@ const withBudgetModalStates = compose(
 );
 
 const withBudgetlHandlers =  withHandlers({
-  setMaximalBudget: ({ setLoading, setMaxBudget, budget, setBudget }) => () => {
+  setMaximalBudget: ({ setLoading, closeModal, setMaxBudget, budget, setBudget }) => () => {
     setLoading(true);
 
-    const itemValue = budget.includes(',') ? parseFloat(budget.replace(',','.')) : parseFloat(budget);
+    const itemValue = budget && budget.includes(',') ? parseFloat(budget.replace(',','.')) : parseFloat(budget);
 
     try {
       if ( !budget ) {
@@ -36,6 +36,7 @@ const withBudgetlHandlers =  withHandlers({
         });
   
         Alert.alert('Rozpočet bol nastavený');
+        closeModal();
       }
 
       setBudget(null);

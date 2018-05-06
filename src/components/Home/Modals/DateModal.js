@@ -61,9 +61,11 @@ const DateModal = ({
         cancelBtnText={ 'Zrušiť' }
         customStyles={{
           dateInput: {
-            ...AppStyles.dateInputStyle,
+            borderWidth:0,
+            borderColor: 'transparent',
           }
         }}
+        style={ AppStyles.dateInputStyle }
         onDateChange={ date => setDate(date) }
       />
       <Spacer size={ 15 } />

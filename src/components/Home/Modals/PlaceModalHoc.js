@@ -20,7 +20,7 @@ const withReduxConnect = connect(
 );
 
 const withPlaceModalHandlers =  withHandlers({
-  setAndSaveWeddingPlace: ({ setLoading, place, setPlace, setPlaceCity }) => () => {
+  setAndSaveWeddingPlace: ({ setLoading, closeModal, place, setPlace, setPlaceCity }) => () => {
     setLoading(true);
 
     try {
@@ -34,6 +34,7 @@ const withPlaceModalHandlers =  withHandlers({
         });
   
         Alert.alert('Mesto bolo nastavené');
+        closeModal();
       }
 
       setPlace(null);

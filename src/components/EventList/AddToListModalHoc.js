@@ -21,7 +21,7 @@ const withListModalStates = compose(
 );
 
 const withListModallHandlers =  withHandlers({
-  addTodoItem: ({ setLoading, addToTodo, title, setTitle }) => () => {
+  addTodoItem: ({ setLoading, closeModal, addToTodo, title, setTitle }) => () => {
     setLoading(true);
 
     const datetime = new Moment();
@@ -38,6 +38,7 @@ const withListModallHandlers =  withHandlers({
         });
   
         Alert.alert('Položka bola pridaná');
+        closeModal();
       }
 
       setTitle(null);

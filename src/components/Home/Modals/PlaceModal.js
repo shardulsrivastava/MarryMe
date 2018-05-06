@@ -70,7 +70,6 @@ const PlaceModal = ({
         styles={{
           container: {
             flex: 0,
-            zIndex: 1,
           },
           textInputContainer: {
             width: 325,

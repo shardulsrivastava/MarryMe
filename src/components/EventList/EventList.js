@@ -1,13 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, TouchableOpacity, FlatList } from 'react-native';
+import { View, TouchableOpacity, FlatList } from 'react-native';
 import { AppStyles, AppColors } from '../../styles';
 import { NavBar } from '../ui';
+import { Text, SearchBar } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 // Components
 import AddToListModal from './AddToListModalHoc';
 import EventListRow from './EventListRow';
+
+const filterTodos = (todos, searchTodo) => {
+  if ( todos && todos.length > 0 ) {
+    return todos.filter((item) => {
+      const search = String(searchTodo).toLowerCase()
+        .replace(/[\u0300-\u036f]/g, '');
+      return String(item.text).toLowerCase()
+        .replace(/[\u0300-\u036f]/g, '')
+        .includes(search);
+    });
+  }
+};
 
 const EventList = ({
   listModalVisible,
@@ -15,6 +28,8 @@ const EventList = ({
   todoData,
   deleteItem,
   toogleItem,
+  searchTodo,
+  setFilter,
 }) => (
   <View style={ [
     AppStyles.flex1,
@@ -37,8 +52,14 @@ const EventList = ({
         </TouchableOpacity>
       }
     />
+    <SearchBar
+      lightTheme
+      inputStyle={{ backgroundColor: '#F9F9F9', color: '#666666' }}
+      onChangeText={ value => setFilter(value) }
+      placeholder={ 'Vyhľadať položku' }
+    />
     <FlatList
-      data={ todoData }
+      data={ filterTodos(todoData, searchTodo) }
       ListEmptyComponent={ () => <Text h4 style={{ alignSelf: 'center', marginTop: 20 }}>Prázdny zoznam</Text> }
       keyExtractor={ todoItem => todoItem.id }
       renderItem={ todo => (<EventListRow
@@ -64,6 +85,8 @@ EventList.propTypes = {
   todoData: PropTypes.array,
   deleteItem: PropTypes.func,
   toogleItem: PropTypes.func,
+  searchTodo: PropTypes.string,
+  setFilter: PropTypes.func,
 };
 
 

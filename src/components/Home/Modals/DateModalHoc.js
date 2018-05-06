@@ -20,7 +20,7 @@ const withReduxConnect = connect(
 );
 
 const withDateModalHandlers =  withHandlers({
-  setAndSaveWeddingDate: ({ setLoading, setDate, date, setWeddingDate }) => () => {
+  setAndSaveWeddingDate: ({ setLoading, closeModal, setDate, date, setWeddingDate }) => () => {
     setLoading(true);
 
     try {
@@ -34,6 +34,7 @@ const withDateModalHandlers =  withHandlers({
         });
   
         Alert.alert('Dátum svadby bol nastavený');
+        closeModal();
       }
 
       setDate(null);

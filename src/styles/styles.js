@@ -8,7 +8,7 @@ export default {
   loginInputContainer: {
     backgroundColor: '#FFF',
     width: 300,
-    borderWidth: 0.5,
+    borderWidth: 2,
     borderColor: '#d9dade',
     borderRadius: 80,
     height: 50,
@@ -44,8 +44,8 @@ export default {
   dateInputStyle: {
     backgroundColor: '#FFF',
     width: 300,
-    borderWidth: 0.5,
-    borderColor: 'gray',
+    borderWidth: 1,
+    borderColor: '#d9dade',
     borderRadius: 80,
     height: 50,
   },

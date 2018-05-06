@@ -23,6 +23,7 @@ const withReduxConnect = connect(
 const withBudgetStates = compose(
   withState('budgetModalVisible', 'setBudgetModalVisible', false),
   withState('maxBudgetModalVisible', 'setMaxBudgetModalVisible', false),
+  withState('searchBudgetItem', 'setFilter', ''),
 );
 
 const withBudgetlHandlers =  withHandlers({

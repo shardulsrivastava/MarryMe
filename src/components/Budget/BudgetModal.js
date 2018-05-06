@@ -15,8 +15,8 @@ const BudgetModal = ({
   value,
   setValue,
   addItemToBudget,
-}) => (
-  <Modal
+}) => {
+  return (<Modal
     visible={ isVisible }
     onRequestClose={ closeModal }
   >
@@ -80,8 +80,8 @@ const BudgetModal = ({
         ] }
       />
     </View>
-  </Modal>
-);
+  </Modal>);
+};
 
 BudgetModal.propTypes = { 
   isVisible: PropTypes.bool,

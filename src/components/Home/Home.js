@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, Platform } from 'react-native';
 import { AppStyles, AppColors } from '../../styles';
 import { Divider, Text } from 'react-native-elements';
 import { Spacer, NavBar } from '../ui';
@@ -25,7 +25,8 @@ const Home = ({
 }) => {
   const toDate = Date.parse( weddingDate ) - Date.parse (new Date() );
   const daysToWedding = Math.floor( toDate / ( 1000 * 60 * 60 * 24 ) );
-
+  const isAndroid = Platform.OS === 'android' ? true : false;
+  const doneTodos = todos.filter(item => item.completed == true);
 
   return (<View style={ AppStyles.flex1 }>
     <NavBar
@@ -43,6 +44,7 @@ const Home = ({
     >
       <Text h3 style={{	
        paddingBottom: 25,
+       paddingTop: isAndroid ? 15 : 0,
        fontWeight: 'bold',	
        color: AppColors.app.black,	
       }}	
@@ -74,7 +76,7 @@ const Home = ({
       <Spacer size={ 10 } />
       <HomeCard
         icon={ 'ios-checkmark-circle-outline' }
-        value={ `0 / ${todos.length}` }
+        value={ `${doneTodos.length} / ${todos.length}` }
         color={ '#D6D0E4' }
         onPress={ () => goToEventList() }
       />

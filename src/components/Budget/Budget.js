@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, TouchableOpacity, FlatList } from 'react-native';
+import { View, ScrollView, TouchableOpacity, FlatList } from 'react-native';
 import { AppStyles, AppColors } from '../../styles';
 import { NavBar } from '../ui';
-import { Text } from 'react-native-elements';
+import { Text, SearchBar } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 // Components
@@ -11,6 +11,18 @@ import BudgetHeader from './BudgetHeader';
 import BudgetModal from './BudgetModalHoc';
 import SetBudgetModal from './SetBudgetModalHoc';
 import BudgetListRow from './BudgetListRow';
+
+const filterBudgets = (budgets, searchItem) => {
+  if ( budgets && budgets.length > 0 ) {
+    return budgets.filter((item) => {
+      const search = String(searchItem).toLowerCase()
+        .replace(/[\u0300-\u036f]/g, '');
+      return String(item.budgetTitle).toLowerCase()
+        .replace(/[\u0300-\u036f]/g, '')
+        .includes(search);
+    });
+  }
+};
 
 const Budget = ({
   budgetModalVisible,
@@ -21,10 +33,12 @@ const Budget = ({
   budgetData,
   budgetTotal,
   deleteItem,
+  setFilter,
+  searchBudgetItem,
 }) => (
-  <View style={ [
+  <ScrollView style={ [
     AppStyles.flex1,
-    { backgroundColor: AppColors.app.white }
+    { backgroundColor: AppColors.app.white, paddingBottom: 15 }
   ] }>
     <NavBar
       title={{
@@ -43,14 +57,16 @@ const Budget = ({
         </TouchableOpacity>
       }
     />
+    <BudgetHeader
+      value1={ budgetTotal }
+      value2={ maxBudget }
+      onChangeSearchText={ value => setFilter(value) }
+      setMaxBudget={ () => setMaxBudgetModalVisible(true) }
+    />
     <FlatList
-      data={ budgetData }
+      data={ filterBudgets(budgetData, searchBudgetItem) }
       ListEmptyComponent={ () => <Text h4 style={{ alignSelf: 'center', marginTop: 20 }}>Prázdny zoznam</Text> }
-      ListHeaderComponent={ () => (<BudgetHeader
-        value1={ budgetTotal }
-        value2={ maxBudget }
-        setMaxBudget={ () => setMaxBudgetModalVisible(true) }
-      />) }
+      //ListHeaderComponent={ () => () }
       keyExtractor={ budgetItem => budgetItem.id }
       renderItem={ budget => (<BudgetListRow
         title={ budget.item.budgetTitle }
@@ -70,7 +86,7 @@ const Budget = ({
       isVisible={ maxBudgetModalVisible }
       closeModal={ () => setMaxBudgetModalVisible(false) }
     />
-  </View>
+  </ScrollView>
 );
 
 Budget.propTypes = { 
@@ -82,6 +98,8 @@ Budget.propTypes = {
   budgetData: PropTypes.array,
   budgetTotal: PropTypes.number,
   deleteItem: PropTypes.func,
+  searchBudgetItem: PropTypes.string,
+  setFilter: PropTypes.func,
 };
 
 export default Budget;
