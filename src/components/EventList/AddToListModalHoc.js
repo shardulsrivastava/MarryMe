@@ -37,7 +37,6 @@ const withListModallHandlers =  withHandlers({
          todoText: title
         });
   
-        Alert.alert('Položka bola pridaná');
         closeModal();
       }
 

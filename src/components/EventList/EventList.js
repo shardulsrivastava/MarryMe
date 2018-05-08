@@ -69,6 +69,17 @@ const EventList = ({
       onPress={ index => setBtnGroupState({ ...btnGroupState, index }) }
       selectedIndex={ btnGroupState.index }
       buttons={ buttons }
+      selectedButtonStyle={{ backgroundColor: '#7ae2db' }}
+      selectedTextStyle={{ color: '#000' }}
+      containerStyle={{
+        borderWidth: 0,
+        elevation: 1,
+        shadowOpacity: 1,
+        shadowRadius: 2,
+        shadowOffset: {
+          height: 2,
+        }
+      }}
     />
     {btnGroupState.index === 0 ? <FlatList
       data={ filterTodos(unfinishedTodos, searchTodo, btnGroupState.index) }

@@ -35,7 +35,6 @@ const withBudgetlHandlers =  withHandlers({
          maxBudget: itemValue,
         });
   
-        Alert.alert('Rozpočet bol nastavený');
         closeModal();
       }
 

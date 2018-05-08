@@ -44,7 +44,6 @@ const withBudgetlHandlers =  withHandlers({
           total: budgetSum + itemValue
         })
   
-        Alert.alert('Položka bola pridaná');
         closeModal();
       }
 

@@ -13,7 +13,7 @@ const EventListRow = ({ text, createdAt, status, onPressDelete, changeStatus }) 
     style={ [
       AppStyles.simpleCard,
       { 
-        backgroundColor: status ? '#C8E6C9' : '#FFCDD2',
+        backgroundColor: '#F0F0F0',
         marginTop: 10,
         marginHorizontal: 10,
       }
@@ -32,8 +32,8 @@ const EventListRow = ({ text, createdAt, status, onPressDelete, changeStatus }) 
           style={{ marginRight: 15 }}
         >
           <Icon
-            name={ 'md-checkmark-circle-outline' }
-            style={{ color: !status ? 'black' : 'gray' }}
+            name={ 'ios-checkmark-circle-outline' }
+            style={{ color: !status ? '#F44336' : '#4CAF50' }}
             size={ 30 }
           />
         </TouchableOpacity>
