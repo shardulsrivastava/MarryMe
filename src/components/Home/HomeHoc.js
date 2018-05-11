@@ -7,7 +7,6 @@ import Home from './Home';
 
 const withReduxStates = connect(state => ({
   //basic informations states
-  city: state.place.city,
   weddingDate: state.date.weddingDate,
   //budget states
   maxBudget: state.budget.maxBudget,
@@ -17,7 +16,6 @@ const withReduxStates = connect(state => ({
 }));
 
 const withHomeStates = compose(
-  withState('placeModalVisible', 'setPlaceModalVisible', false),
   withState('dateModalVisible', 'setDateModalVisible', false),
 );
 

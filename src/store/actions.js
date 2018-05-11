@@ -12,14 +12,6 @@ export const resetLoggedCouple = () => ({
   payload: null,
 });
 
-//Place actions
-export const SET_PLACE_CITY = 'SET_PLACE_CITY';
-
-export const setPlaceCity = place => ({
-  type: SET_PLACE_CITY,
-  payload: place,
-});
-
 //Date actions
 export const SET_WEDDING_DATE = 'SET_WEDDING_DATE';
 

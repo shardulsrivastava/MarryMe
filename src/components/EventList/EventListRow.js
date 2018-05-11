@@ -21,44 +21,45 @@ const EventListRow = ({ text, createdAt, status, onPressDelete, changeStatus }) 
   >
     <View style={ [
       AppStyles.row,
-      { justifyContent: 'space-between', alignItems: 'center' },
-    ] }>
-      <Text style={{ fontSize: 12 }}>
-        { moment(createdAt).format('DD.MM.YYYY, HH:mm') }
-      </Text>
-      <View style={ AppStyles.row }>
-        <TouchableOpacity
+      { alignItems: 'center' },
+    ] }
+    >
+      <TouchableOpacity
           onPress={ changeStatus }
-          style={{ marginRight: 15 }}
+          style={{ paddingRight: 10 }}
         >
-          <Icon
-            name={ 'ios-checkmark-circle-outline' }
-            style={{ color: !status ? '#F44336' : '#4CAF50' }}
-            size={ 30 }
-          />
-        </TouchableOpacity>
+        <Icon
+          name={ 'ios-checkmark-circle' }
+          size={ 35 }
+          style={{ color: !status ? '#E57373' : '#81C784' }}
+        />
+      </TouchableOpacity>
+
+      <View style={ [
+        AppStyles.row,
+        { justifyContent: 'space-between', alignItems: 'center', flex: 1 },
+      ] }>
+        <View style={{ flex: 1, marginRight: 5 }}>
+          <Text style={{ fontSize: 11 }}>
+            { moment(createdAt).format('DD.MM.YYYY, HH:mm') }
+          </Text>
+          <Text
+            style={{ fontSize: 16, color: AppColors.app.black }}
+          >
+            { text } 
+          </Text>
+        </View>
         <TouchableOpacity
           onPress={ onPressDelete }
         >
           <Icon
             name={ 'ios-close' }
-            size={ 30 }
+            size={ 28 }
+            style={{ color: '#EF5350' }}
           />
         </TouchableOpacity>
       </View>
-    </View>
-    <View style={ [
-      AppStyles.row,
-      {
-        justifyContent: 'space-between',
-        paddingTop: 5,
-      },
-    ] }>
-      <Text
-        style={{ fontSize: 16, color: AppColors.app.black }}
-      >
-        { text } 
-      </Text>
+
     </View>
   </TouchableOpacity>
 );

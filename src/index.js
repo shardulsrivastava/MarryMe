@@ -14,7 +14,6 @@ persistStore(
     whitelist: [
       'couple',
       'app',
-      'place',
       'date',
       'budget',
       'todo',

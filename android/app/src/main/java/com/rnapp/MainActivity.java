@@ -1,4 +1,4 @@
-package com.rnapp;
+package com.marrymeapp;
 
 import com.facebook.react.ReactActivity;
 

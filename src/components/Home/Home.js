@@ -7,14 +7,11 @@ import { Spacer, NavBar } from '../ui';
 
 // Components
 import HomeCard from './HomeCard';
-import PlaceModal from './Modals/PlaceModalHoc';
 import DateModal from './Modals/DateModalHoc';
+import DateItem from './DashboardItems/DateItem';
 
 const Home = ({
-  city,
   weddingDate,
-  placeModalVisible,
-  setPlaceModalVisible,
   dateModalVisible,
   setDateModalVisible,
   goToBudget,
@@ -30,9 +27,7 @@ const Home = ({
 
   return (<View style={ AppStyles.flex1 }>
     <NavBar
-      title={{
-        title: 'MarryMe.'
-      }}
+      title={<Text style={{ fontSize: 18, color: '#444444' }}>MarryMe.</Text>}
     />
     <ScrollView style={ [
       AppStyles.flex1,
@@ -42,32 +37,13 @@ const Home = ({
       },
     ] }
     >
-      <Text h3 style={{	
-       paddingBottom: 25,
-       paddingTop: isAndroid ? 15 : 0,
-       fontWeight: 'bold',	
-       color: AppColors.app.black,	
-      }}	
-      >	
-        Informácie	
-      </Text>
-      <HomeCard
-        iconLeft
-        icon={ 'ios-time-outline' }
-        value={ weddingDate ? `o ${daysToWedding.toString()} dní` : 'Nastaviť dátum' }
-        color={ '#A8EFEB' }
+      <DateItem
         onPress={ () => setDateModalVisible(true) }
+        date={ weddingDate }
+        toDate={ `o ${daysToWedding.toString()} dní` }
       />
       <Spacer size={ 10 } />
       <HomeCard
-        icon={ 'ios-pin-outline' }
-        value={ city ? city : 'Nastaviť mesto' }
-        color={ '#D6E5F3' }
-        onPress={ () => setPlaceModalVisible(true) }
-      />
-      <Spacer size={ 10 } />
-      <HomeCard
-        iconLeft
         icon={ 'ios-cash-outline' }
         value={ maxBudget ? `${budgetTotal}€ / ${maxBudget}€` : 'Nastaviť rozpočet' }
         color={ '#EEB9DB' }
@@ -75,6 +51,7 @@ const Home = ({
       />
       <Spacer size={ 10 } />
       <HomeCard
+        iconLeft
         icon={ 'ios-checkmark-circle-outline' }
         value={ `${doneTodos.length} / ${todos.length}` }
         color={ '#D6D0E4' }
@@ -82,10 +59,6 @@ const Home = ({
       />
     </ScrollView>
 
-    <PlaceModal
-      isVisible={ placeModalVisible }
-      closeModal={ () => setPlaceModalVisible(false) }
-    />
     <DateModal
       isVisible={ dateModalVisible }
       closeModal={ () => setDateModalVisible(false) }
@@ -94,10 +67,7 @@ const Home = ({
 };
 
 Home.propTypes = {
-  city: PropTypes.string,
   weddingDate: PropTypes.string,
-  placeModalVisible: PropTypes.bool,
-  setPlaceModalVisible: PropTypes.func,
   dateModalVisible: PropTypes.bool,
   setDateModalVisible: PropTypes.func,
   goToBudget: PropTypes.func,

@@ -71,7 +71,7 @@ export default {
   },
 
   simpleCard: {
-    padding: 10,
+    padding: 15,
     borderRadius: 5,
   },
 

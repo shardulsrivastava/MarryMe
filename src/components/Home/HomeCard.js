@@ -18,7 +18,7 @@ const HomeCard = ({
         onPress={ onPress }
         activeOpacity={ 0.6 }
         style={ [
-          AppStyles.simpleCard,
+          AppStyles.shadowCard,
           AppStyles.row,
           {
             justifyContent: 'space-between',
@@ -45,7 +45,7 @@ const HomeCard = ({
         onPress={ onPress }
         activeOpacity={ 0.6 }
         style={ [
-          AppStyles.simpleCard,
+          AppStyles.shadowCard,
           AppStyles.row,
           {
             justifyContent: 'space-between',

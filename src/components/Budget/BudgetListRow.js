@@ -20,34 +20,46 @@ const BudgetListRow = ({ title, value, onPressDelete }) => (
   >
     <View style={ [
       AppStyles.row,
-      { justifyContent: 'flex-end' }
-    ] }>
-      <TouchableOpacity
-        onPress={ onPressDelete }
+      { justifyContent: 'space-between', alignItems: 'center' },
+    ] }
+    >
+      <View style={{ flex: 1, marginRight: 5 }}>
+        <Text
+          style={{ fontSize: 16, color: AppColors.app.black }}
+        >
+          { title } 
+        </Text>
+      </View>
+      <View style={ [
+        AppStyles.row,
+        { alignItems: 'center', justifyContent: 'space-between' }
+      ]}
       >
-        <Icon
-          name={ 'ios-close' }
-          size={ 30 }
-        />
-      </TouchableOpacity>
-    </View>
-    <View style={ [
-      AppStyles.row,
-      {
-        justifyContent: 'space-between',
-        paddingTop: 5,
-      },
-    ] }>
-      <Text
-        style={{ fontSize: 16, color: AppColors.app.black }}
-      >
-        { title } 
-      </Text>
-      <Text
-        style={{ fontSize: 18, fontWeight: 'bold', color: AppColors.app.black }}
-      >
-        { `${value}€` } 
-      </Text>
+        <View
+          style={{
+            backgroundColor: '#B2EBF2',
+            paddingVertical: 5,
+            paddingHorizontal: 15,
+            borderRadius: 50,
+          }}
+        >
+          <Text
+            style={{ fontSize: 18, fontWeight: 'bold', color: AppColors.app.black }}
+          >
+            { `${value}€` } 
+          </Text>
+        </View>
+        <TouchableOpacity
+          style={{ paddingLeft: 10 }}
+          onPress={ onPressDelete }
+        >
+          <Icon
+            name={ 'ios-close' }
+            size={ 28 }
+            style={{ color: '#EF5350' }}
+          />
+        </TouchableOpacity>
+      </View>
     </View>
   </TouchableOpacity>
 );
