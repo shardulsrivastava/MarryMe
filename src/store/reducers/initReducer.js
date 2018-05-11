@@ -1,6 +1,6 @@
 const initialState = {
   ready: false,
-  version: '0.2'
+  version: '0.3'
 };
 
 export default (state = initialState, action) => {
