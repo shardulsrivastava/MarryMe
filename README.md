@@ -5,6 +5,9 @@
 
 MarryMe is mobile application for people, who want to plan their wedding. App is based on React Native for both mobile platform iOS/Android.
 
+## Google Play
+https://play.google.com/store/apps/details?id=com.marrymeapp
+
 ## Getting Started
 
 ### Settings
